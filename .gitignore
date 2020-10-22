@@ -1,0 +1,10 @@
+pft_2019
+42TESTERS-PRINTF
+output.dSYM/Contents/Info.plist
+*.swp
+*.swo
+*.o
+*.a
+a.out
+output
+pft_2019/
