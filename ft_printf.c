@@ -12,44 +12,65 @@
 
 #include "printf.h"
 
-int	main()
+void	setflag(t_conv *conv, char *fmt)
 {
-	t_spec	teste;
-	clean_test(&teste);
-	printf("Int teste: %%batata");
-	return (0);
+	if
 }
 
-int	ft_printf(const char *fmt, ...)
+void	ft_flags(t_conv *conv, char *fmt)
 {
-	t_spec spec;
+	if (fmt[(conv->counter)] == '%')
+	{
+		ft_putchar('%');
+		conv->counter = conv->counter + 1;
+		return;
+	}
+	if (fmt[(conv->counter)] == '*' || fmt[(conv->counter)] == '-' ||
+		fmt[(conv->counter)] == '0' || fmt[(conv->counter)] == '.')
+		setflag(&conv, fmt);
+	else
+		ft_putchar('%');
+}
+
+int		ft_printf(const char *fmt, ...)
+{
+	t_conv conv;
 	va_list args;
 	
+	init(&conv);
 	va_start(args, fmt);
-	init(spec);
-	while (fmt)
+	while (fmt[conv.counter])
 	{
-		if ()
+		if (fmt[conv.counter] == '%')
 		{
-			
+			ft_flags(&conv, fmt);
+			ft_convert(&conv, fmt);
 		}
-		
+		else
+			ft_putchar(fmt[conv.counter]);
+		conv.counter++;		
 	}
 }
 
-void	inic(t_spec *spec)
+void	clean_flags(t_conv *conv)
 {
-	int i;
+	conv->asterisk = 0;
+	conv->minus = 0;
+	conv->zero = 0;
+	conv->point = 0;
+	conv->content = 0;
+	conv->size = 0;
+	conv->counter = 0;
+}
+void	init(t_conv *conv)
+{
+	clean_flags(conv);
+	conv->content = 0;
+	conv->size = 0;
+	conv->counter = 0;
+}
 
-	i = 0;
-	spec->specifier = 0;
-	while (i < MAX_FLAGS)
-	{
-		spec->flags[i];
-		i++;
-	}
-	spec->content = 0;
-	spec->size = 0;
-	spec->counter = 0;
-	spec->print = '/0';
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
 }

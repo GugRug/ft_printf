@@ -20,19 +20,31 @@
 
 #define MAX_FLAGS 4
 
-typedef struct	s_spec
+typedef struct	s_flags
 {
-	unsigned char	specifier;
-	int		flags[MAX_FLAGS];
+	int				putzeros;
+	int				size;
+}				t_flags;
+
+
+typedef struct	s_conv
+{
+	t_flags			asterisk;
+	t_flags			minus;
+	t_flags			zero;
+	t_flags			point;
 	size_t			content;
 	int				size;
 	int				counter;
-	char			*print;
-	char			*conv;
-	
-}				t_spec;
+}				t_conv;
 
-void	inic(t_spec *spec);
-void	ft_putnbr(int nb, t_spec *print);
+void	init(t_conv *conv);
+void	clean_flags(t_conv *conv);
+void	ft_putnbr(int nb);
+void	ft_putchar(char c);
+void	ft_flags(t_conv *conv, char *fmt);
+void	setflag(t_conv *conv, char *fmt);
+void	ft_convert(t_conv *conv, char *fmt);
+
 
 #endif

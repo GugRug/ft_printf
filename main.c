@@ -12,27 +12,19 @@
 
 #include "printf.h"
 
-void	inic(t_spec *spec)
+void	init(t_conv *conv)
 {
-	int i;
 
-	i = 0;
-	spec->specifier = 0;
-	while (i <= MAX_FLAGS)
-	{
-		spec->flags[i] = 0;
-		i++;
-	}
-	spec->content = 0;
-	spec->size = 0;
-	spec->counter = 0;
-	spec->print = 0;
 }
 
 int	main(void)
 {
-	t_spec spec;
-	init(&spec);
-	ft_putnbr(5, &(spec));
+	t_spec *spec;
+//	printf("Endereço t:%p\n", &tst);
+	spec = (t_spec*)malloc(sizeof(t_spec*) + 17);
+	init(spec);
+	ft_putnbr(5, spec);
+	printf("Teste %c", spec->print[0]);
+	//printf("Teste x: %d, y: %d\n", tst->x, tst->y);
 	return (0);
 }
