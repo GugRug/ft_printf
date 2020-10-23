@@ -1,43 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gumartin <gumartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/23 05:23:50 by gumartin          #+#    #+#             */
-/*   Updated: 2020/10/23 01:18:27 by gumartin         ###   ########.fr       */
+/*   Created: 2020/10/22 22:36:01 by gumartin          #+#    #+#             */
+/*   Updated: 2020/10/23 01:17:53 by gumartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../printf.h"
+#include "printf.h"
 
-void	printa(int n, t_spec *conv)
+void	inic(t_spec *spec)
 {
-	char	c;
+	int i;
 
-	c = n + '0';
-	//write(1, &c, 1);
-	conv->print[conv->size] = c;
-	(conv->size)++;
+	i = 0;
+	spec->specifier = 0;
+	while (i <= MAX_FLAGS)
+	{
+		spec->flags[i] = 0;
+		i++;
+	}
+	spec->content = 0;
+	spec->size = 0;
+	spec->counter = 0;
+	spec->print = 0;
 }
 
-void	ft_putnbr(int nb, t_spec *conv)
+int	main(void)
 {
-	unsigned int	nb2;
-
-	if (nb < 0)
-	{
-		write(1, "-", 1);					//Check this later
-		nb2 = nb * (-1);
-	}
-	else
-		nb2 = nb;
-	if (nb2 >= 10)
-	{
-		ft_putnbr(nb2 / 10, conv);
-		ft_putnbr(nb2 % 10, conv);
-	}
-	else
-		printa(nb2, conv);
+	t_spec spec;
+	init(&spec);
+	ft_putnbr(5, &(spec));
+	return (0);
 }
