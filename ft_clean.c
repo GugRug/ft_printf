@@ -6,7 +6,7 @@
 /*   By: gumartin <gumartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/23 19:18:01 by gumartin          #+#    #+#             */
-/*   Updated: 2020/10/24 08:08:07 by gumartin         ###   ########.fr       */
+/*   Updated: 2020/10/24 09:24:33 by gumartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,5 @@ void	init(t_conv *conv)
 	conv->content = 0;
 	conv->len = 0;
 	conv->counter = 0;
-	conv->specifier = '\0'
+	conv->specifier = '\0';
 }

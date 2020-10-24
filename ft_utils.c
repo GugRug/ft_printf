@@ -6,7 +6,7 @@
 /*   By: gumartin <gumartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/23 05:23:50 by gumartin          #+#    #+#             */
-/*   Updated: 2020/10/24 08:37:55 by gumartin         ###   ########.fr       */
+/*   Updated: 2020/10/24 10:08:30 by gumartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,13 @@
 void	int_to_char(unsigned int n, t_conv *conv)
 {
 	char	c;
-	if (n < 10)
+	//write(1, "--batata\n", 9);
+	if (n < 10 && !conv)
+		c = n + '0';
+	else if (n < 10)
 		c = n + '0';
 	else if (n < 16)
-		c = n + ('conv->specifier' - ('X' - 'A'));
+		c = n + (conv->specifier - ('x' - 'a' +10));
 	ft_putchar(c);;
 }
 

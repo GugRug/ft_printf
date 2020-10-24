@@ -6,7 +6,7 @@
 /*   By: gumartin <gumartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/22 13:39:47 by gumartin          #+#    #+#             */
-/*   Updated: 2020/10/24 07:23:56 by gumartin         ###   ########.fr       */
+/*   Updated: 2020/10/24 09:46:51 by gumartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	ft_flags(t_conv *conv, const char *fmt, va_list args)
 		fmt[(conv->counter)] == 'p' || fmt[(conv->counter)] == 'd' ||
 		fmt[(conv->counter)] == 'i' || fmt[(conv->counter)] == 'u' ||
 		fmt[(conv->counter)] == 'x' || fmt[(conv->counter)] == 'X')
-		ft_convert(&conv, fmt, args);
+		ft_convert(conv, fmt, args);
 	else
 		ft_putchar(fmt[(conv->counter)]);
 }
@@ -69,6 +69,8 @@ int		ft_convert(t_conv *conv, const char *fmt, va_list args)
 	else if (fmt[(conv->counter)] == 'u')
 		ft_u_print(conv, args);
 	else if (fmt[(conv->counter)] == 'x' || (fmt[(conv->counter)] == 'X'))
+	{
+		conv->specifier = fmt[(conv->counter)];
 		ft_xX_print(conv, args);
-	conv->counter++;
+	}
 }

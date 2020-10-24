@@ -6,7 +6,7 @@
 /*   By: gumartin <gumartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/22 22:36:01 by gumartin          #+#    #+#             */
-/*   Updated: 2020/10/23 21:17:41 by gumartin         ###   ########.fr       */
+/*   Updated: 2020/10/24 10:42:27 by gumartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 int	main(void)
 {
-	//ft_printf("Isso e um teste basico %d, %d %d", 546, 17, 56);
-	//printf("numero |%d|\n", 17);
+	ft_printf("Isso e um teste basico %d, %i, %u, %c, %s, %x, %X\n"
+			, -546, 3834567899, 3834567899,'h', "abacate", 163, 32456);
+	printf("numero ||\n");
 	return (0);
 }
