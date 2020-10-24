@@ -21,7 +21,7 @@ void	int_to_char(size_t n, t_conv *conv)
 		c = n + (conv->specifier - ('p' - 'a' +10));
 	else if (n < 16)
 		c = n + (conv->specifier - ('x' - 'a' +10));
-	ft_putchar(c);;
+	ft_putchar(c);
 }
 
 void	ft_putchar(char c)

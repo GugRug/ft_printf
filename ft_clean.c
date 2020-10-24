@@ -18,6 +18,7 @@ void	clean_flags(t_conv *conv)
 	conv->minus.state = 0;
 	conv->zero.state = 0;
 	conv->point.state = 0;
+	conv->specifier = '\0';
 
 }
 void	init(t_conv *conv)
@@ -26,5 +27,4 @@ void	init(t_conv *conv)
 	conv->content = 0;
 	conv->len = 0;
 	conv->counter = 0;
-	conv->specifier = '\0';
 }

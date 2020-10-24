@@ -36,7 +36,7 @@ int		ft_printf(const char *fmt, ...)
 
 
 void	ft_flags(t_conv *conv, const char *fmt, va_list args)
-{
+{//if valid()  para achar specifier e verificar se e convertivel ou invalido
 	conv->counter++;	
 	if (fmt[(conv->counter)] == '%')
 	{
