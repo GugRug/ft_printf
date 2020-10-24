@@ -16,6 +16,7 @@ int	main(void)
 {
 	int a = 5; unsigned int un = 5; char c = 'W'; int he = 17080; 
 	char *str = "test71";
+	int *addr = &a;
 	// printf("Isso e o pf %.5- real \n%d, %i, %u, %c, %s, %x, %X, %p\n", -234, 3834567899, 3834567899,'h', "abacate", 163, 32456, &a);
 	// ft_printf("Isso e um %.5- basico \n%d, %i, %u, %c, %s, %x, %X, %p\n", -234, 3834567899, 3834567899,'h', "abacate", 163, 32456, &a);
 	ft_printf("INTEGERS\n");
@@ -57,12 +58,21 @@ int	main(void)
 
 	ft_printf("String -> %s\n", str);
 	ft_printf("ft_printf |%-*s|	-	", 8, str);printf("|%-*s| Correto\n", 8, str);
-	ft_printf("ft_printf |%05s|	-	", str);printf("|%05s| Correto\n", str);
-	ft_printf("ft_printf |%-05s|	-	", str);printf("|%-05s| Correto\n", str);
+	ft_printf("ft_printf |%050s|	-	", str);printf("|%050s| Correto\n", str);
+	ft_printf("ft_printf |%-050s|	-	", str);printf("|%-050s| Correto\n", str);
 	ft_printf("ft_printf |%.9s|	-	", str);printf("|%-.9s| Correto\n", str);
 	ft_printf("ft_printf |%-.9s|	-	", str);printf("|%-.9s| Correto\n", str);
-	ft_printf("ft_printf |%5.2s|	-	", str);printf("|%5.2s| Correto\n", str);
+	ft_printf("ft_printf |%5.4s|	-	", str);printf("|%5.4s| Correto\n", str);
 	ft_printf("ft_printf |%010.8s|	-	", str);printf("|%010.8s| Correto\n", str);
+
+	ft_printf("Adress -> %p\n", addr);
+	ft_printf("ft_printf |%*p|	-	", 8, addr);printf("|%*p| Correto\n", 20, addr);
+	ft_printf("ft_printf |%050p|	-	", addr);printf("|%050p| Correto\n", addr);
+	ft_printf("ft_printf |%-050p|	-	", addr);printf("|%-050p| Correto\n", addr);
+	ft_printf("ft_printf |%.90p|	-	", addr);printf("|%.90p| Correto\n", addr);
+	ft_printf("ft_printf |%-.9p|	-	", addr);printf("|%.-9p| Correto\n", addr);
+	ft_printf("ft_printf |%5.4p|	-	", addr);printf("|%5.4p| Correto\n", addr);
+	ft_printf("ft_printf |%050.8p|	-	", addr);printf("|%050.8p| Correto\n", addr);
 
 	return (0);
 }
