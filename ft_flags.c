@@ -1,20 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_flags.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gumartin <gumartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/22 22:36:01 by gumartin          #+#    #+#             */
-/*   Updated: 2020/10/23 21:17:41 by gumartin         ###   ########.fr       */
+/*   Created: 2020/10/23 19:18:07 by gumartin          #+#    #+#             */
+/*   Updated: 2020/10/23 19:21:08 by gumartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-int	main(void)
-{
-	//ft_printf("Isso e um teste basico %d, %d %d", 546, 17, 56);
-	//printf("numero |%d|\n", 17);
-	return (0);
-}
+// void	setflag(t_conv *conv, const char *fmt)
+// {
+// 	return;
+// }

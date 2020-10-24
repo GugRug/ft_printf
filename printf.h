@@ -6,7 +6,7 @@
 /*   By: gumartin <gumartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/22 14:00:24 by gumartin          #+#    #+#             */
-/*   Updated: 2020/10/23 19:05:30 by gumartin         ###   ########.fr       */
+/*   Updated: 2020/10/23 20:47:29 by gumartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,35 @@ typedef struct	s_conv
 	int				counter;
 }				t_conv;
 
+/*
+**		ft_printf.c
+*/
 int		ft_printf(const char *fmt, ...);
+void	ft_convert(t_conv *conv, const char *fmt, va_list args);
+int		ft_flags(t_conv *conv, const char *fmt);
+/*
+**		ft_clean.c
+*/
 void	init(t_conv *conv);
 void	clean_flags(t_conv *conv);
+/*
+**		ft_utils.c
+*/
 void	ft_putnbr(int nb);
 void	ft_putchar(char c);
-int		ft_flags(t_conv *conv, const char *fmt);
+void	ft_putstr(char *s);
+/*
+**		Print
+*/
+void	ft_c_print(t_conv *conv, va_list args);
+void	ft_s_print(t_conv *conv, va_list args);
+void	ft_p_print(t_conv *conv, va_list args);
+void	ft_di_print(t_conv *conv, va_list args);
+void	ft_u_print(t_conv *conv, va_list args);
+void	ft_xX_print(t_conv *conv, va_list args);
+/*
+**		Flags
+*/
 //void	setflag(t_conv *conv, const char *fmt);
-void	ft_convert(t_conv *conv, const char *fmt, va_list args);
-
 
 #endif

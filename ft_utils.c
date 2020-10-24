@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_utils.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gumartin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: gumartin <gumartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/23 05:23:50 by gumartin          #+#    #+#             */
-/*   Updated: 2019/11/28 01:09:13 by gumartin         ###   ########.fr       */
+/*   Updated: 2020/10/23 19:42:58 by gumartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../printf.h"
+#include "printf.h"
 
-void	printa(int n)
+void	int_to_char(int n)
 {
 	char	c;
 
@@ -37,5 +37,31 @@ void	ft_putnbr(int nb)
 		ft_putnbr(nb2 % 10);
 	}
 	else
-		printa(nb2);
+		int_to_char(nb2);
 }
+
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
+
+void	ft_putstr(char *s)
+{
+	if (s)
+		while (*s)
+		{
+		write(1, s, 1);
+		s++;
+		}
+}
+
+
+// size_t	ft_strlen(const char *str)
+// {
+// 	size_t i;
+
+// 	i = 0;
+// 	while (str[i] != '\0')
+// 		i++;
+// 	return (i);
+// }

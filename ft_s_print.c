@@ -1,23 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_s_print.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gumartin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: gumartin <gumartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/01 00:19:53 by gumartin          #+#    #+#             */
-/*   Updated: 2020/02/01 00:20:01 by gumartin         ###   ########.fr       */
+/*   Created: 2020/10/23 19:18:13 by gumartin          #+#    #+#             */
+/*   Updated: 2020/10/23 19:36:30 by gumartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "printf.h"
 
-size_t	ft_strlen(const char *str)
+void	ft_s_print(t_conv *conv, va_list args)
 {
-	size_t i;
-
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return (i);
+	int		temp;
+	temp = va_arg(args, int);
+	ft_putnbr(temp);
 }

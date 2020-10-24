@@ -6,7 +6,7 @@
 /*   By: gumartin <gumartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/22 13:39:47 by gumartin          #+#    #+#             */
-/*   Updated: 2020/10/23 19:10:31 by gumartin         ###   ########.fr       */
+/*   Updated: 2020/10/23 21:00:03 by gumartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,6 @@ int		ft_printf(const char *fmt, ...)
 	return (0);
 }
 
-// void	setflag(t_conv *conv, const char *fmt)
-// {
-// 	return;
-// }
 
 int		ft_flags(t_conv *conv, const char *fmt)
 {
@@ -64,29 +60,17 @@ int		ft_flags(t_conv *conv, const char *fmt)
 
 void	ft_convert(t_conv *conv, const char *fmt, va_list args)
 {
-	int		temp;
-	temp = va_arg(args, int);
-	ft_putnbr(temp);
-}
-
-
-void	clean_flags(t_conv *conv)
-{
-	conv->asterisk.state = 0;
-	conv->minus.state = 0;
-	conv->zero.state = 0;
-	conv->point.state = 0;
-
-}
-void	init(t_conv *conv)
-{
-	clean_flags(conv);
-	conv->content = 0;
-	conv->len = 0;
-	conv->counter = 0;
-}
-
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
+	if (fmt[(conv->counter)] == 'c')
+		ft_c_print(conv, args);
+	else if (fmt[(conv->counter)] == 's')
+		ft_s_print(conv, args);
+	else if (fmt[(conv->counter)] == 'p')
+		ft_p_print(conv, args);
+	else if (fmt[(conv->counter)] == 'd' || (fmt[(conv->counter)] == 'i'))
+		ft_di_print(conv, args);
+	else if (fmt[(conv->counter)] == 'u')
+		ft_u_print(conv, args);
+	else if (fmt[(conv->counter)] == 'x' || (fmt[(conv->counter)] == 'X'))
+		ft_xX_print(conv, args);
+	conv->counter++;
 }
