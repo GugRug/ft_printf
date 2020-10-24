@@ -6,7 +6,7 @@
 /*   By: gumartin <gumartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/22 13:39:47 by gumartin          #+#    #+#             */
-/*   Updated: 2020/10/24 09:46:51 by gumartin         ###   ########.fr       */
+/*   Updated: 2020/10/24 11:14:54 by gumartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ void	ft_flags(t_conv *conv, const char *fmt, va_list args)
 
 int		ft_convert(t_conv *conv, const char *fmt, va_list args)
 {
+	conv->specifier = fmt[(conv->counter)];
 	if (fmt[(conv->counter)] == 'c')
 		ft_c_print(conv, args);
 	else if (fmt[(conv->counter)] == 's')
@@ -69,8 +70,5 @@ int		ft_convert(t_conv *conv, const char *fmt, va_list args)
 	else if (fmt[(conv->counter)] == 'u')
 		ft_u_print(conv, args);
 	else if (fmt[(conv->counter)] == 'x' || (fmt[(conv->counter)] == 'X'))
-	{
-		conv->specifier = fmt[(conv->counter)];
 		ft_xX_print(conv, args);
-	}
 }

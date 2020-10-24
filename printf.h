@@ -6,7 +6,7 @@
 /*   By: gumartin <gumartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/22 14:00:24 by gumartin          #+#    #+#             */
-/*   Updated: 2020/10/24 09:48:29 by gumartin         ###   ########.fr       */
+/*   Updated: 2020/10/24 11:45:50 by gumartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	clean_flags(t_conv *conv);
 **
 **		utils.c
 */
-void	int_to_char(unsigned int n, t_conv *conv);
+void	int_to_char(size_t n, t_conv *conv);
 void	ft_putchar(char c);
 void	ft_putstr(char *s);
 /*
@@ -62,7 +62,7 @@ void	ft_putstr(char *s);
 */
 void	ft_putnbr_di(int nb);
 void	ft_putnbr_u(unsigned int nb);
-void	ft_putnbr_xX(unsigned int nb, t_conv *conv);
+void	ft_putnbr_xX(size_t nb, t_conv *conv);
 /*
 **
 **		Print
