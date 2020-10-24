@@ -6,7 +6,7 @@
 /*   By: gumartin <gumartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/22 14:00:24 by gumartin          #+#    #+#             */
-/*   Updated: 2020/10/23 20:47:29 by gumartin         ###   ########.fr       */
+/*   Updated: 2020/10/24 07:07:34 by gumartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,27 +20,27 @@
 
 typedef struct	s_flags
 {
-	int				state;
-	int				size;
+	int			state;
+	int			size;
 }				t_flags;
 
 typedef struct	s_conv
 {
-	t_flags			asterisk;
-	t_flags			minus;
-	t_flags			zero;
-	t_flags			point;
-	size_t			content;
-	int				len;
-	int				counter;
+	t_flags		asterisk;
+	t_flags		minus;
+	t_flags		zero;
+	t_flags		point;
+	size_t		content;
+	int			len;
+	int			counter;
 }				t_conv;
 
 /*
 **		ft_printf.c
 */
 int		ft_printf(const char *fmt, ...);
-void	ft_convert(t_conv *conv, const char *fmt, va_list args);
-int		ft_flags(t_conv *conv, const char *fmt);
+int		ft_convert(t_conv *conv, const char *fmt, va_list args);
+void	ft_flags(t_conv *conv, const char *fmt, va_list args);
 /*
 **		ft_clean.c
 */

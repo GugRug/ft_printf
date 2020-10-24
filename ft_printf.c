@@ -6,7 +6,7 @@
 /*   By: gumartin <gumartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/22 13:39:47 by gumartin          #+#    #+#             */
-/*   Updated: 2020/10/23 21:00:03 by gumartin         ###   ########.fr       */
+/*   Updated: 2020/10/24 07:23:56 by gumartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,7 @@ int		ft_printf(const char *fmt, ...)
 	{
 		if (fmt[conv.counter] == '%')
 		{
-			conv.counter++;	
-			if(ft_flags(&conv, fmt))
-				ft_convert(&conv, fmt, args);
+			ft_flags(&conv, fmt, args);
 			clean_flags(&conv);
 		}
 		else
@@ -37,28 +35,28 @@ int		ft_printf(const char *fmt, ...)
 }
 
 
-int		ft_flags(t_conv *conv, const char *fmt)
+void	ft_flags(t_conv *conv, const char *fmt, va_list args)
 {
+	conv->counter++;	
 	if (fmt[(conv->counter)] == '%')
 	{
 		ft_putchar('%');
-		conv->counter = conv->counter + 1;
-		return (0);
+		return;
 	}
+	//isnum needed in the next if
 	if (fmt[(conv->counter)] == '*' || fmt[(conv->counter)] == '-' ||
 		fmt[(conv->counter)] == '0' || fmt[(conv->counter)] == '.');
-		// setflag(&conv, fmt); cspdiuxX%
-	else if (fmt[(conv->counter)] == 'c' || fmt[(conv->counter)] == 's' ||
-			fmt[(conv->counter)] == 'p' || fmt[(conv->counter)] == 'd' ||
-			fmt[(conv->counter)] == 'i' || fmt[(conv->counter)] == 'u' ||
-			fmt[(conv->counter)] == 'x' || fmt[(conv->counter)] == 'X')
-			return (1);
-	 else //if isnum before
+		// setflag(&conv, fmt);
+	if (fmt[(conv->counter)] == 'c' || fmt[(conv->counter)] == 's' ||
+		fmt[(conv->counter)] == 'p' || fmt[(conv->counter)] == 'd' ||
+		fmt[(conv->counter)] == 'i' || fmt[(conv->counter)] == 'u' ||
+		fmt[(conv->counter)] == 'x' || fmt[(conv->counter)] == 'X')
+		ft_convert(&conv, fmt, args);
+	else
 		ft_putchar(fmt[(conv->counter)]);
-	return (0);
 }
 
-void	ft_convert(t_conv *conv, const char *fmt, va_list args)
+int		ft_convert(t_conv *conv, const char *fmt, va_list args)
 {
 	if (fmt[(conv->counter)] == 'c')
 		ft_c_print(conv, args);
