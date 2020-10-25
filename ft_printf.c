@@ -6,7 +6,7 @@
 /*   By: gumartin <gumartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/22 13:39:47 by gumartin          #+#    #+#             */
-/*   Updated: 2020/10/24 11:14:54 by gumartin         ###   ########.fr       */
+/*   Updated: 2020/10/25 18:25:25 by gumartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,30 +25,31 @@ int		ft_printf(const char *fmt, ...)
 		{
 			ft_flags(&conv, fmt, args);
 			clean_flags(&conv);
+			conv.counter++;
 		}
 		else
-			ft_putchar(fmt[conv.counter], conv);
-		conv.counter++;
+		{
+			ft_putchar(&conv, fmt[conv.counter]);
+			conv.counter++;
+		}
 	}
+	free(conv.flags);
+	conv.flags = NULL;
 	va_end(args);
 	return (0);
 }
-
 
 void	ft_flags(t_conv *conv, const char *fmt, va_list args)
 {
 	conv->counter++;	
 	if (fmt[(conv->counter)] == '%')
 	{
-		ft_putchar('%', conv);
+		ft_putchar(conv, '%');
 		return;
 	}
-	if (ft_valid_conv)
-	{
-		//ft_tempstr
+	if (ft_valid_conv(conv, fmt, args))
 		return;
-	}
-	ft_putchar(fmt[(conv->counter)], conv);
+	ft_putchar(conv, fmt[(conv->counter)]);
 }
 
 int		ft_valid_conv(t_conv *conv, const char *fmt, va_list args)
@@ -58,7 +59,8 @@ int		ft_valid_conv(t_conv *conv, const char *fmt, va_list args)
 		if (fmt[(conv->counter + conv->len)] == '-' || fmt[(conv->counter + conv->len)] == '0' ||
 			fmt[(conv->counter + conv->len)] == '.' || fmt[(conv->counter + conv->len)] == '*' ||
 			ft_isnum(fmt[(conv->counter + conv->len)]))
-			conv->len++;
+		{	conv->len++;
+		}
 		else if (fmt[(conv->counter + conv->len)] == 'c' || fmt[(conv->counter + conv->len)] == 's' ||
 				fmt[(conv->counter + conv->len)] == 'p' || fmt[(conv->counter + conv->len)] == 'd' ||
 				fmt[(conv->counter + conv->len)] == 'i' || fmt[(conv->counter + conv->len)] == 'u' ||
@@ -79,16 +81,14 @@ void	ft_putflag(t_conv *conv, const char *fmt, va_list args)
 	int	i;
 // if isnt printable in any time, return len
 	i = 0;
-	while (fmt[(conv->counter + i)] != conv->specifier)
-	{
-		
-	}
-
-	return;
+	free(conv->flags);
+	conv->flags = NULL;
+	conv->flags = ft_substr(fmt, conv->counter, conv->len);
+	ft_convert(conv, fmt, args);
 }
 
-int		ft_convert(t_conv *conv, const char *fmt, va_list args)
-{
+void	ft_convert(t_conv *conv, const char *fmt, va_list args)
+{	
 	if (fmt[(conv->counter)] == 'c')
 		ft_c_print(conv, args);
 	else if (fmt[(conv->counter)] == 's')
@@ -101,4 +101,7 @@ int		ft_convert(t_conv *conv, const char *fmt, va_list args)
 		ft_u_print(conv, args);
 	else if (fmt[(conv->counter)] == 'x' || (fmt[(conv->counter)] == 'X'))
 		ft_xX_print(conv, args);
+		// if successe, than counter =+ len;
 }
+
+	//ft_putstr(conv, "{Teste}\n"); //TESTANDO

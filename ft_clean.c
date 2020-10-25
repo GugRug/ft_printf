@@ -6,7 +6,7 @@
 /*   By: gumartin <gumartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/23 19:18:01 by gumartin          #+#    #+#             */
-/*   Updated: 2020/10/24 09:24:33 by gumartin         ###   ########.fr       */
+/*   Updated: 2020/10/25 17:21:59 by gumartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	clean_flags(t_conv *conv)
 	conv->precision.content = 0;
 	conv->specifier = '\0';
 	conv->len = 0;
+	conv->success = 0;
 }
 
 void	init(t_conv *conv)
@@ -32,4 +33,5 @@ void	init(t_conv *conv)
 	clean_flags(conv);
 	conv->ret = 0;
 	conv->counter = 0;
+	conv->flags = NULL;
 }

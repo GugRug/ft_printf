@@ -6,7 +6,7 @@
 /*   By: gumartin <gumartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/23 19:18:10 by gumartin          #+#    #+#             */
-/*   Updated: 2020/10/24 08:34:09 by gumartin         ###   ########.fr       */
+/*   Updated: 2020/10/25 15:05:40 by gumartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,5 @@ void	ft_di_print(t_conv *conv, va_list args)
 	int		temp;
 	
 	temp = va_arg(args, int);
-	ft_putnbr_di(temp);
+	ft_putnbr_di(conv, temp);
 }

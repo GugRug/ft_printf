@@ -6,7 +6,7 @@
 /*   By: gumartin <gumartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/23 19:18:13 by gumartin          #+#    #+#             */
-/*   Updated: 2020/10/24 09:32:02 by gumartin         ###   ########.fr       */
+/*   Updated: 2020/10/25 15:05:46 by gumartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,5 @@ void	ft_s_print(t_conv *conv, va_list args)
 	//see flags
 	char	*temp;
 	temp = va_arg(args, char *);
-	ft_putstr(temp);
+	ft_putstr(conv, temp);
 }

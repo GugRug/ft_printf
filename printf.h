@@ -6,7 +6,7 @@
 /*   By: gumartin <gumartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/22 14:00:24 by gumartin          #+#    #+#             */
-/*   Updated: 2020/10/24 11:45:50 by gumartin         ###   ########.fr       */
+/*   Updated: 2020/10/25 17:32:40 by gumartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,17 @@ typedef struct	s_flags
 
 typedef struct	s_conv
 {
-	t_flags		asterisk;
 	t_flags		minus;
 	t_flags		zero;
 	t_flags		point;
-	t_flags		width;			//itoa
+	t_flags		width;			//itoa to use the wedth and precision
+	t_flags		asterisk;
 	t_flags		precision;
 	int			len;
-	int			counter;
 	int			ret;
+	int			success;
+	int			counter;
+	char*		flags;
 	char		specifier;
 }				t_conv;
 /*
@@ -43,9 +45,9 @@ typedef struct	s_conv
 */
 int		ft_printf(const char *fmt, ...);
 void	ft_flags(t_conv *conv, const char *fmt, va_list args);
-int		valid_conv(t_conv *conv, const char *fmt, va_list args);
+int		ft_valid_conv(t_conv *conv, const char *fmt, va_list args);
 void	ft_putflag(t_conv *conv, const char *fmt, va_list args);
-int		ft_convert(t_conv *conv, const char *fmt, va_list args);
+void	ft_convert(t_conv *conv, const char *fmt, va_list args);
 /*
 **
 **		clean.c
@@ -56,17 +58,18 @@ void	clean_flags(t_conv *conv);
 **
 **		utils.c
 */
-void	int_to_char(size_t n, t_conv *conv);
-void	ft_putchar(char c, t_conv *conv);
-void	ft_putstr(char *s, t_conv *conv);
+void	int_to_char(t_conv *conv, size_t n);
+void	ft_putchar(t_conv *conv, char c);
+void	ft_putstr(t_conv *conv, char *s);
 int		ft_isnum(char c);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
 /*
 **
 **		putnbr.c
 */
-void	ft_putnbr_di(int nb);
-void	ft_putnbr_u(unsigned int nb);
-void	ft_putnbr_xX(size_t nb, t_conv *conv);
+void	ft_putnbr_di(t_conv *conv, int nb);
+void	ft_putnbr_u(t_conv *conv, unsigned int nb);
+void	ft_putnbr_xX(t_conv *conv, size_t nb);
 /*
 **
 **		Print

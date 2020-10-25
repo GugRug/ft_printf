@@ -6,13 +6,13 @@
 /*   By: gumartin <gumartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/23 05:23:50 by gumartin          #+#    #+#             */
-/*   Updated: 2020/10/24 11:44:39 by gumartin         ###   ########.fr       */
+/*   Updated: 2020/10/25 17:38:37 by gumartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-void	int_to_char(size_t n, t_conv *conv)
+void	int_to_char(t_conv *conv, size_t n)
 {
 	char	c;
 	if (n < 10)
@@ -21,21 +21,21 @@ void	int_to_char(size_t n, t_conv *conv)
 		c = n + (conv->specifier - ('p' - 'a' +10));
 	else if (n < 16)
 		c = n + (conv->specifier - ('x' - 'a' +10));
-	ft_putchar(c, conv);
+	ft_putchar(conv, c);
 }
 
-void	ft_putchar(char c, t_conv *conv)
+void	ft_putchar(t_conv *conv, char c)
 {
 	write(1, &c, 1);
 	conv->ret++;
 }
 
-void	ft_putstr(char *s, t_conv *conv)
+void	ft_putstr(t_conv *conv, char *s)
 {
 	if (s)
 		while (*s)
 		{
-		ft_putchar(*s, conv);
+		ft_putchar(conv, *s);
 		s++;
 		}
 }
@@ -45,6 +45,28 @@ int		ft_isnum(char c)
 	if (!(c >= '0' && c <= '9'))
 		return (0);
 	return (1);
+}
+
+char	*ft_substr(char const *s, unsigned int start, size_t len)
+{
+	char                    *sub;
+	unsigned int    i;
+
+	if (s != NULL)
+	{
+		sub = (char*)malloc(sizeof(char) * (len + 1));
+		if (!sub)
+			return (0);
+		i = 0;
+		while (i < len && s[i + start])
+		{
+			sub[i] = s[i + start];
+			i++;
+		}
+		sub[i] = '\0';
+		return (sub);
+	}
+	return (NULL);
 }
 
 // size_t	ft_strlen(const char *str)

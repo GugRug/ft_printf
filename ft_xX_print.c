@@ -6,7 +6,7 @@
 /*   By: gumartin <gumartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/23 19:51:28 by gumartin          #+#    #+#             */
-/*   Updated: 2020/10/24 09:49:29 by gumartin         ###   ########.fr       */
+/*   Updated: 2020/10/25 15:05:15 by gumartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,5 @@ void	ft_xX_print(t_conv *conv, va_list args)
 	unsigned	temp;
 	
 	temp = va_arg(args, unsigned int);
-	ft_putnbr_xX(temp, conv);
+	ft_putnbr_xX(conv, temp);
 }
