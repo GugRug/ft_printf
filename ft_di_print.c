@@ -16,7 +16,6 @@ void	ft_di_print(t_conv *conv, va_list args)
 {
 	//see flags 
 	int		temp;
-	
 	temp = va_arg(args, int);
 	ft_putnbr_di(conv, temp);
 }

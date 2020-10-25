@@ -25,7 +25,6 @@ int		ft_printf(const char *fmt, ...)
 		{
 			ft_flags(&conv, fmt, args);
 			clean_flags(&conv);
-			conv.counter++;
 		}
 		else
 		{
@@ -81,10 +80,11 @@ void	ft_putflag(t_conv *conv, const char *fmt, va_list args)
 	int	i;
 // if isnt printable in any time, return len
 	i = 0;
+	conv->flags = ft_substr(fmt, conv->counter, conv->len);
+	printf(" ---A substr e: |%s| ---", conv->flags);
+	ft_convert(conv, fmt, args);
 	free(conv->flags);
 	conv->flags = NULL;
-	conv->flags = ft_substr(fmt, conv->counter, conv->len);
-	ft_convert(conv, fmt, args);
 }
 
 void	ft_convert(t_conv *conv, const char *fmt, va_list args)

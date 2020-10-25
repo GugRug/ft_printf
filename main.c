@@ -20,7 +20,7 @@ int	main(void)
 	// printf("Isso e o pf %.5- real \n%d, %i, %u, %c, %s, %x, %X, %p\n", -234, 3834567899, 3834567899,'h', "abacate", 163, 32456, &a);
 	// ft_printf("Isso e um %.5- basico \n%d, %i, %u, %c, %s, %x, %X, %p\n", -234, 3834567899, 3834567899,'h', "abacate", 163, 32456, &a);
 	ft_printf("INTEGERS\n");
-	ft_printf("ft_printf |%%-*d|	-	", 3, a);printf("|%-*d| Correto\n", 3, a, b);
+	ft_printf("ft_printf |%-*d|	-	", 3, a);printf("|%-*d| Correto\n", 3, a, b);
 	ft_printf("ft_printf |%05d|	-	", a);printf("|%05d| Correto\n", a);
 	ft_printf("ft_printf |%-05d|	-	", a);printf("|%-05d| Correto\n", a);
 	ft_printf("ft_printf |%.9d|	-	", a);printf("|%.9d| Correto\n", a);
