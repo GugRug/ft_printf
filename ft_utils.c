@@ -21,22 +21,30 @@ void	int_to_char(size_t n, t_conv *conv)
 		c = n + (conv->specifier - ('p' - 'a' +10));
 	else if (n < 16)
 		c = n + (conv->specifier - ('x' - 'a' +10));
-	ft_putchar(c);
+	ft_putchar(c, conv);
 }
 
-void	ft_putchar(char c)
+void	ft_putchar(char c, t_conv *conv)
 {
 	write(1, &c, 1);
+	conv->ret++;
 }
 
-void	ft_putstr(char *s)
+void	ft_putstr(char *s, t_conv *conv)
 {
 	if (s)
 		while (*s)
 		{
-		ft_putchar(*s);
+		ft_putchar(*s, conv);
 		s++;
 		}
+}
+
+int		ft_isnum(char c)
+{
+	if (!(c >= '0' && c <= '9'))
+		return (0);
+	return (1);
 }
 
 // size_t	ft_strlen(const char *str)

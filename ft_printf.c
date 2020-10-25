@@ -27,8 +27,8 @@ int		ft_printf(const char *fmt, ...)
 			clean_flags(&conv);
 		}
 		else
-			ft_putchar(fmt[conv.counter]);
-		conv.counter++;		
+			ft_putchar(fmt[conv.counter], conv);
+		conv.counter++;
 	}
 	va_end(args);
 	return (0);
@@ -36,29 +36,51 @@ int		ft_printf(const char *fmt, ...)
 
 
 void	ft_flags(t_conv *conv, const char *fmt, va_list args)
-{//if valid()  para achar specifier e verificar se e convertivel ou invalido
+{
 	conv->counter++;	
 	if (fmt[(conv->counter)] == '%')
 	{
-		ft_putchar('%');
+		ft_putchar('%', conv);
 		return;
 	}
-	//isnum needed in the next if
-	if (fmt[(conv->counter)] == '*' || fmt[(conv->counter)] == '-' ||
-		fmt[(conv->counter)] == '0' || fmt[(conv->counter)] == '.');
-		// setflag(&conv, fmt);
-	if (fmt[(conv->counter)] == 'c' || fmt[(conv->counter)] == 's' ||
-		fmt[(conv->counter)] == 'p' || fmt[(conv->counter)] == 'd' ||
-		fmt[(conv->counter)] == 'i' || fmt[(conv->counter)] == 'u' ||
-		fmt[(conv->counter)] == 'x' || fmt[(conv->counter)] == 'X')
-		ft_convert(conv, fmt, args);
-	else
-		ft_putchar(fmt[(conv->counter)]);
+	if (ft_valid_conv)
+	{
+		//ft_tempstr
+		return;
+	}
+	ft_putchar(fmt[(conv->counter)], conv);
+}
+
+int		ft_valid_conv(t_conv *conv, const char *fmt, va_list args)
+{
+	while (fmt[(conv->counter + conv->len)])
+	{
+		if (fmt[(conv->counter + conv->len)] == '-' || fmt[(conv->counter + conv->len)] == '0' ||
+			fmt[(conv->counter + conv->len)] == '.' || fmt[(conv->counter + conv->len)] == '*' ||
+			ft_isnum(fmt[(conv->counter + conv->len)]))
+			ft_putflag(conv, fmt, args);
+		else if (fmt[(conv->counter + conv->len)] == 'c' || fmt[(conv->counter + conv->len)] == 's' ||
+				fmt[(conv->counter + conv->len)] == 'p' || fmt[(conv->counter + conv->len)] == 'd' ||
+				fmt[(conv->counter + conv->len)] == 'i' || fmt[(conv->counter + conv->len)] == 'u' ||
+				fmt[(conv->counter + conv->len)] == 'x' || fmt[(conv->counter + conv->len)] == 'X')
+		{
+			conv->specifier = fmt[(conv->counter + conv->len)];
+			return (1);
+		}
+		else 
+			return (0);
+		conv->len++;
+	}	
+	return (0);
+}
+
+void	ft_putflag(t_conv *conv, const char *fmt, va_list args)
+{
+	return;
 }
 
 int		ft_convert(t_conv *conv, const char *fmt, va_list args)
 {
-	conv->specifier = fmt[(conv->counter)];
 	if (fmt[(conv->counter)] == 'c')
 		ft_c_print(conv, args);
 	else if (fmt[(conv->counter)] == 's')

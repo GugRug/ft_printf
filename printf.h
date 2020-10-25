@@ -21,7 +21,7 @@
 typedef struct	s_flags
 {
 	int			state;
-	int			size;
+	size_t		content;
 }				t_flags;
 
 typedef struct	s_conv
@@ -30,19 +30,22 @@ typedef struct	s_conv
 	t_flags		minus;
 	t_flags		zero;
 	t_flags		point;
-	size_t		content;
+	t_flags		width;
+	t_flags		precision;
 	int			len;
 	int			counter;
+	int			ret;
 	char		specifier;
 }				t_conv;
-
 /*
 **
 **		ft_printf.c
 */
 int		ft_printf(const char *fmt, ...);
-int		ft_convert(t_conv *conv, const char *fmt, va_list args);
 void	ft_flags(t_conv *conv, const char *fmt, va_list args);
+int		valid_conv(t_conv *conv, const char *fmt, va_list args);
+void	ft_putflag(t_conv *conv, const char *fmt, va_list args);
+int		ft_convert(t_conv *conv, const char *fmt, va_list args);
 /*
 **
 **		clean.c
@@ -54,8 +57,9 @@ void	clean_flags(t_conv *conv);
 **		utils.c
 */
 void	int_to_char(size_t n, t_conv *conv);
-void	ft_putchar(char c);
-void	ft_putstr(char *s);
+void	ft_putchar(char c, t_conv *conv);
+void	ft_putstr(char *s, t_conv *conv);
+int		ft_isnum(char c);
 /*
 **
 **		putnbr.c

@@ -18,13 +18,18 @@ void	clean_flags(t_conv *conv)
 	conv->minus.state = 0;
 	conv->zero.state = 0;
 	conv->point.state = 0;
+	conv->width.state = 0;
+	conv->precision.state = 0;
+	conv->asterisk.content = 0;
+	conv->width.content = 0;
+	conv->precision.content = 0;
 	conv->specifier = '\0';
-
+	conv->len = 0;
 }
+
 void	init(t_conv *conv)
 {
 	clean_flags(conv);
-	conv->content = 0;
-	conv->len = 0;
+	conv->ret = 0;
 	conv->counter = 0;
 }
