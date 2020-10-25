@@ -58,24 +58,32 @@ int		ft_valid_conv(t_conv *conv, const char *fmt, va_list args)
 		if (fmt[(conv->counter + conv->len)] == '-' || fmt[(conv->counter + conv->len)] == '0' ||
 			fmt[(conv->counter + conv->len)] == '.' || fmt[(conv->counter + conv->len)] == '*' ||
 			ft_isnum(fmt[(conv->counter + conv->len)]))
-			ft_putflag(conv, fmt, args);
+			conv->len++;
 		else if (fmt[(conv->counter + conv->len)] == 'c' || fmt[(conv->counter + conv->len)] == 's' ||
 				fmt[(conv->counter + conv->len)] == 'p' || fmt[(conv->counter + conv->len)] == 'd' ||
 				fmt[(conv->counter + conv->len)] == 'i' || fmt[(conv->counter + conv->len)] == 'u' ||
 				fmt[(conv->counter + conv->len)] == 'x' || fmt[(conv->counter + conv->len)] == 'X')
 		{
 			conv->specifier = fmt[(conv->counter + conv->len)];
+			ft_putflag(conv, fmt, args);
 			return (1);
 		}
 		else 
 			return (0);
-		conv->len++;
 	}	
 	return (0);
 }
 
 void	ft_putflag(t_conv *conv, const char *fmt, va_list args)
 {
+	int	i;
+// if isnt printable in any time, return len
+	i = 0;
+	while (fmt[(conv->counter + i)] != conv->specifier)
+	{
+		
+	}
+
 	return;
 }
 

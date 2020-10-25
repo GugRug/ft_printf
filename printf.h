@@ -30,7 +30,7 @@ typedef struct	s_conv
 	t_flags		minus;
 	t_flags		zero;
 	t_flags		point;
-	t_flags		width;
+	t_flags		width;			//itoa
 	t_flags		precision;
 	int			len;
 	int			counter;
