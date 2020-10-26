@@ -33,7 +33,7 @@ int	main(void)
 	ft_printf("ft_printf |%-*u|	-	", 3, un);printf("|%-*u| Correto\n", 3, un);
 	ft_printf("ft_printf |%05u|	-	", un);printf("|%05u| Correto\n", un);
 	ft_printf("ft_printf |%-05u|	-	", un);printf("|%-05u| Correto\n", un);
-	ft_printf("ft_printf |%.9u|	-	", un);printf("|%-.9u| Correto\n", un);
+	ft_printf("ft_printf |%.9u|	-	", un);printf("|%.9u| Correto\n", un);
 	ft_printf("ft_printf |%-.9u|	-	", un);printf("|%-.9u| Correto\n", un);
 	ft_printf("ft_printf |%5.2u|	-	", un);printf("|%5.2u| Correto\n", un);
 	ft_printf("ft_printf |%010.2u|	-	", un);printf("|%010.2u| Correto\n", un);
@@ -42,7 +42,7 @@ int	main(void)
 	ft_printf("ft_printf |%-*x|	-	", 8, he);printf("|%-*x| Correto\n", 8, he);
 	ft_printf("ft_printf |%05x|	-	", he);printf("|%05x| Correto\n", he);
 	ft_printf("ft_printf |%-05x|	-	", he);printf("|%-05x| Correto\n", he);
-	ft_printf("ft_printf |%.9x|	-	", he);printf("|%-.9x| Correto\n", he);
+	ft_printf("ft_printf |%.9x|	-	", he);printf("|%.9x| Correto\n", he);
 	ft_printf("ft_printf |%-.9x|	-	", he);printf("|%-.9x| Correto\n", he);
 	ft_printf("ft_printf |%5.2x|	-	", he);printf("|%5.2x| Correto\n", he);
 	ft_printf("ft_printf |%010.8x|	-	", he);printf("|%010.8x| Correto\n", he);
@@ -51,7 +51,7 @@ int	main(void)
 	ft_printf("ft_printf |%-*c|	-	", 3, c);printf("|%-*c| Correto\n", 3, c);
 	ft_printf("ft_printf |%05c|	-	", c);printf("|%05c| Correto\n", c);
 	ft_printf("ft_printf |%-05c|	-	", c);printf("|%-05c| Correto\n", c);
-	ft_printf("ft_printf |%.9c|	-	", c);printf("|%-.9c| Correto\n", c);
+	ft_printf("ft_printf |%.9c|	-	", c);printf("|%.9c| Correto\n", c);
 	ft_printf("ft_printf |%-.9c|	-	", c);printf("|%-.9c| Correto\n", c);
 	ft_printf("ft_printf |%5.2c|	-	", c);printf("|%5.2c| Correto\n", c);
 	ft_printf("ft_printf |%010.2c|	-	", c);printf("|%010.2c| Correto\n", c);
@@ -60,7 +60,7 @@ int	main(void)
 	ft_printf("ft_printf |%-*s|	-	", 8, str);printf("|%-*s| Correto\n", 8, str);
 	ft_printf("ft_printf |%050s|	-	", str);printf("|%050s| Correto\n", str);
 	ft_printf("ft_printf |%-050s|	-	", str);printf("|%-050s| Correto\n", str);
-	ft_printf("ft_printf |%.9s|	-	", str);printf("|%-.9s| Correto\n", str);
+	ft_printf("ft_printf |%.9s|	-	", str);printf("|%.9s| Correto\n", str);
 	ft_printf("ft_printf |%-.9s|	-	", str);printf("|%-.9s| Correto\n", str);
 	ft_printf("ft_printf |%5.4s|	-	", str);printf("|%5.4s| Correto\n", str);
 	ft_printf("ft_printf |%010.8s|	-	", str);printf("|%010.8s| Correto\n", str);

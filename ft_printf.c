@@ -78,10 +78,8 @@ int		ft_valid_conv(t_conv *conv, const char *fmt, va_list args)
 void	ft_putflag(t_conv *conv, const char *fmt, va_list args)
 {
 	int	i;
-// if isnt printable in any time, return len
 	i = 0;
 	conv->flags = ft_substr(fmt, conv->counter, conv->len);
-	printf(" ---A substr e: |%s| ---", conv->flags);
 	ft_convert(conv, fmt, args);
 	free(conv->flags);
 	conv->flags = NULL;
@@ -104,4 +102,5 @@ void	ft_convert(t_conv *conv, const char *fmt, va_list args)
 		// if successe, than counter =+ len;
 }
 
-	//ft_putstr(conv, "{Teste}\n"); //TESTANDO
+//printf(" ---A substr e: |%s| ---", conv->flags);
+//ft_putstr(conv, "{Teste}\n"); //TESTANDO

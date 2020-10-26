@@ -36,6 +36,7 @@ typedef struct	s_conv
 	int			ret;
 	int			success;
 	int			counter;
+	int			valid;
 	char*		flags;
 	char		specifier;
 }				t_conv;
@@ -63,6 +64,7 @@ void	ft_putchar(t_conv *conv, char c);
 void	ft_putstr(t_conv *conv, char *s);
 int		ft_isnum(char c);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
+void	*ft_memmove(void *dst, const void *src, size_t len);
 /*
 **
 **		putnbr.c
@@ -84,6 +86,8 @@ void	ft_xX_print(t_conv *conv, va_list args);
 **
 **		Flags
 */
+void	ft_exec_flags(t_conv *conv, size_t nb);
+void	ft_cut_flags(t_conv *conv, size_t nb);
 //void	setflag(t_conv *conv, const char *fmt);
 
 #endif

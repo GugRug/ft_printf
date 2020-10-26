@@ -23,9 +23,10 @@ void	clean_flags(t_conv *conv)
 	conv->asterisk.content = 0;
 	conv->width.content = 0;
 	conv->precision.content = 0;
-	conv->specifier = '\0';
 	conv->len = 0;
 	conv->success = 0;
+	conv->valid = 0;
+	conv->specifier = '\0';
 }
 
 void	init(t_conv *conv)
