@@ -6,7 +6,7 @@
 /*   By: gumartin <gumartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/22 14:00:24 by gumartin          #+#    #+#             */
-/*   Updated: 2020/10/28 02:27:05 by gumartin         ###   ########.fr       */
+/*   Updated: 2020/10/28 03:33:55 by gumartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,14 @@ typedef struct	s_conv
 {
 	t_flags		minus;
 	t_flags		zero;
-	t_flags		width;			//itoa to use the wedth and precision
+	t_flags		width;			//atoi to use the wedth and precision
 	t_flags		asterisk;
 	t_flags		precision;
 	int			len;
 	int			ret;
 	int			success;
 	int			counter;
+	int			len_atoi;
 	int			valid;
 	char*		flags;
 	char		specifier;
@@ -90,6 +91,7 @@ void	ft_xX_print(t_conv *conv, va_list args);
 */
 void	ft_read_flags(t_conv *conv, va_list args);
 void	ft_flag_num(t_conv *conv, va_list args, int *ref);
+int		ft_pf_atoi(t_conv *conv, char *str);
 // void	ft_exec_flags(t_conv *conv, size_t nb);
 // void	ft_cut_flags(t_conv *conv, size_t nb);
 //void	setflag(t_conv *conv, const char *fmt);
