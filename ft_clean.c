@@ -13,11 +13,12 @@
 #include "printf.h"
 
 void	clean_flags(t_conv *conv)
-{
+{	//state 0 empty, 1 full, 2 used
 	conv->minus.state = 0;
 	conv->zero.state = 0;
 	conv->width.state = 0;
 	conv->asterisk.state = 0;
+	conv->asterisk.state_2 = 0;
 	conv->precision.state = 0;
 	conv->minus.position = 0;
 	conv->zero.position = 0;
@@ -28,6 +29,7 @@ void	clean_flags(t_conv *conv)
 	conv->zero.content = 0;
 	conv->width.content = 0;
 	conv->asterisk.content = 0;
+	conv->asterisk.content_2 = 0;
 	conv->precision.content = 0;
 	conv->len = 0;
 	conv->len_atoi = 0;
@@ -46,4 +48,5 @@ void	init(t_conv *conv)
 	conv->ret = 0;
 	conv->counter = 0;
 	conv->flags = NULL;
+	conv->sp_print = "\0"; //only will work with one % in string yet
 }

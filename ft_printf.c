@@ -32,8 +32,8 @@ int		ft_printf(const char *fmt, ...)
 			conv.counter++;
 		}
 	}
-	free(conv.flags);
-	conv.flags = NULL;
+	free(conv.sp_print);
+	conv.sp_print = NULL;
 	va_end(args);
 	return (0);
 }
@@ -87,6 +87,7 @@ void	ft_putflag(t_conv *conv, const char *fmt, va_list args)
 
 void	ft_convert(t_conv *conv, const char *fmt, va_list args)
 {	
+	ft_read_flags(conv, args);
 	if (fmt[(conv->counter)] == 'c')
 		ft_c_print(conv, args);
 	else if (fmt[(conv->counter)] == 's')

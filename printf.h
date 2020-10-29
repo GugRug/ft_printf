@@ -18,11 +18,18 @@
 # include <stdio.h>
 # include <stdarg.h>
 
+/*
+** state_2 and content_2 is for asterisk after precision, width is the standart
+** states: 0 empty, 1 full
+*/
+
 typedef struct	s_flags
 {
 	int			state;
+	int			state_2;
 	int			position;
 	size_t		content;
+	size_t		content_2;
 	char*		inic;
 	char*		end;
 }				t_flags;
@@ -40,6 +47,7 @@ typedef struct	s_conv
 	int			counter;
 	int			len_atoi;
 	int			valid;
+	char*		sp_print;
 	char*		flags;
 	char		specifier;
 }				t_conv;
@@ -62,12 +70,11 @@ void	clean_flags(t_conv *conv);
 **
 **		utils.c
 */
-void	int_to_char(t_conv *conv, size_t n);
 void	ft_putchar(t_conv *conv, char c);
 void	ft_putstr(t_conv *conv, char *s);
 int		ft_isnum(char c);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
-void	*ft_memmove(void *dst, const void *src, size_t len);
+char	*ft_strjoin(char const *s1, char const *s2);
 /*
 **
 **		putnbr.c
@@ -75,6 +82,7 @@ void	*ft_memmove(void *dst, const void *src, size_t len);
 void	ft_putnbr_di(t_conv *conv, int nb);
 void	ft_putnbr_u(t_conv *conv, unsigned int nb);
 void	ft_putnbr_xX(t_conv *conv, size_t nb);
+void	int_to_char(t_conv *conv, size_t n);
 /*
 **
 **		Print
@@ -91,6 +99,7 @@ void	ft_xX_print(t_conv *conv, va_list args);
 */
 void	ft_read_flags(t_conv *conv, va_list args);
 void	ft_flag_num(t_conv *conv, va_list args, int *ref);
+void	ft_flag_asterisk(t_conv *conv, va_list args);
 int		ft_pf_atoi(t_conv *conv, char *str);
 // void	ft_exec_flags(t_conv *conv, size_t nb);
 // void	ft_cut_flags(t_conv *conv, size_t nb);

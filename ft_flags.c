@@ -40,8 +40,7 @@ void	ft_read_flags(t_conv *conv, va_list args)
 		}
 		else if (conv->flags[i] == '*')				//need to paralell *, one to width and other to precision. do this function later
 		{
-			conv->asterisk.state = 1;
-			conv->asterisk.position = i;
+			ft_flag_asterisk(conv, args);
 		}
 		else if (ft_isnum(conv->flags[i]))
 			ft_flag_num(conv, args, &i);			//deal with all sequencial numbers from here, after it, 
@@ -64,6 +63,20 @@ void	ft_flag_num(t_conv *conv, va_list args, int *ref)
 	conv->len_atoi = 0;
 }
 
+void	ft_flag_asterisk(t_conv *conv, va_list args)
+{
+	if (conv->precision.state == 0)
+	{
+		conv->asterisk.state = 1;
+		conv->asterisk.content = va_arg(args, int);
+	}
+	else
+	{
+		conv->asterisk.state_2 = 1;
+		conv->asterisk.content_2 = va_arg(args, int);
+	}
+}
+
 int		ft_pf_atoi(t_conv *conv, char *str)
 {
 	int i;
@@ -79,7 +92,6 @@ int		ft_pf_atoi(t_conv *conv, char *str)
 	conv->len_atoi = i;
 	return (soma);
 }
-
 // void	setflag(t_conv *conv, const char *fmt)
 // {
 // 	return;

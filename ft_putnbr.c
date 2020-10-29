@@ -43,3 +43,16 @@ void	ft_putnbr_xX(t_conv *conv, size_t nb)
 	else
 		int_to_char(conv, nb);
 }
+
+void	int_to_char(t_conv *conv, size_t n)
+{
+	char	c[2];
+	if (n < 10)
+		*c = n + '0';
+	else if (n < 16 && conv->specifier == 'p')
+		*c = n + (conv->specifier - ('p' - 'a' +10));
+	else if (n < 16)
+		*c = n + (conv->specifier - ('x' - 'a' +10));
+	c[1] = '\0';
+	strjoin(conv->sp_print, c);
+}
