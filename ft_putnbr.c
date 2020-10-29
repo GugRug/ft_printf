@@ -6,7 +6,7 @@
 /*   By: gumartin <gumartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/24 08:16:56 by gumartin          #+#    #+#             */
-/*   Updated: 2020/10/29 13:51:14 by gumartin         ###   ########.fr       */
+/*   Updated: 2020/10/29 17:16:09 by gumartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	int_to_char(t_conv *conv, size_t n)
 	c[1] = '\0';
 	if (conv->sp_print == NULL)
 	{
-		conv->sp_print = (char*)malloc(sizeof(char) * 2);
+		conv->sp_print = (char*)malloc(sizeof(char*) * 2);
 		conv->sp_print[0] = c[0];
 		conv->sp_print[1] = c[1];
 	}

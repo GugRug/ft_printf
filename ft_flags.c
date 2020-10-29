@@ -6,7 +6,7 @@
 /*   By: gumartin <gumartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/23 19:18:07 by gumartin          #+#    #+#             */
-/*   Updated: 2020/10/29 14:52:47 by gumartin         ###   ########.fr       */
+/*   Updated: 2020/10/29 16:45:04 by gumartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ int		ft_pf_atoi(t_conv *conv, char *str)
 	return (soma);
 }
 
-void	ft_exec_flags(t_conv *conv, size_t nb)
+void	ft_exec_flags(t_conv *conv)
 {
 	// change conv->sp_len inside this func)
 	if (conv->minus.state == 1)
@@ -97,6 +97,8 @@ void	ft_exec_flags(t_conv *conv, size_t nb)
 		put_precision(conv); //Join string with zeros and sp_print, need negative treatment
 	if (conv->width.state == 1 && conv->width.content != 0)
 		put_width(conv);
+	if (conv->part_chr[0] != '\0')
+		conv->sp_print =  ft_strjoin(conv->part_chr, conv->sp_print);
 	ft_putstr(conv, conv->sp_print);
 	free(conv->sp_print);
 	conv->sp_print = NULL;
@@ -114,8 +116,6 @@ void	put_precision(t_conv *conv)
 	{
 	temp = strbuild(conv, '0', size);
 	conv->sp_print =  ft_strjoin(temp, conv->sp_print);
-	if (conv->part_chr[0] != '\0')
-		conv->sp_print =  ft_strjoin(conv->part_chr, conv->sp_print);
 	free(temp);
 	temp = NULL;
 	}
@@ -127,16 +127,16 @@ void	put_width(t_conv *conv)
 	char	c;
 	int		size;
 
-	size = conv->width.content - ft_strlen(conv->sp_print);
+	size = conv->width.content - (ft_strlen(conv->sp_print) + ft_strlen(conv->part_chr));
 	c = ' ';
-	if (conv->zero.state == 1)
+	if (conv->zero.state == 1 && conv->minus.state == 0)
 		c = '0';
 	if (size > 0)
 	{
 	temp = strbuild(conv, c, size);
 	if(conv->minus.state == 0)
 		conv->sp_print =  ft_strjoin(temp, conv->sp_print);
-	else
+	else	
 		conv->sp_print =  ft_strjoin(conv->sp_print, temp);
 	free(temp);
 	temp = NULL;

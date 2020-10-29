@@ -6,7 +6,7 @@
 /*   By: gumartin <gumartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/23 19:52:14 by gumartin          #+#    #+#             */
-/*   Updated: 2020/10/25 15:05:27 by gumartin         ###   ########.fr       */
+/*   Updated: 2020/10/29 17:40:54 by gumartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,10 @@
 
 void	ft_p_print(t_conv *conv, va_list args)
 {
-	//see flags
-	size_t addr;
+	size_t	nb;
 
-	addr = (size_t)va_arg(args, void *);
-	ft_putstr(conv, "0x");
-	//specifier zeros here
-	ft_putnbr_xX(conv, addr);
+	nb = (size_t)va_arg(args, void *);
+	conv->part_chr[0] = '0x';
+	ft_putnbr_xX(conv, nb);
+	ft_exec_flags(conv);
 }

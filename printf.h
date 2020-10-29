@@ -6,7 +6,7 @@
 /*   By: gumartin <gumartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/22 14:00:24 by gumartin          #+#    #+#             */
-/*   Updated: 2020/10/29 13:39:31 by gumartin         ###   ########.fr       */
+/*   Updated: 2020/10/29 16:29:19 by gumartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ void	ft_read_flags(t_conv *conv, va_list args);
 void	ft_flag_num(t_conv *conv, va_list args, int *ref);
 void	ft_flag_asterisk(t_conv *conv, va_list args);
 int		ft_pf_atoi(t_conv *conv, char *str);
-void	ft_exec_flags(t_conv *conv, size_t nb);
+void	ft_exec_flags(t_conv *conv);
 void	put_precision(t_conv *conv);
 void	put_width(t_conv *conv);
 char	*strbuild(t_conv *conv, char c, int n);
