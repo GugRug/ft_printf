@@ -6,7 +6,7 @@
 /*   By: gumartin <gumartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/23 19:18:10 by gumartin          #+#    #+#             */
-/*   Updated: 2020/10/28 01:35:09 by gumartin         ###   ########.fr       */
+/*   Updated: 2020/10/29 13:25:29 by gumartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,12 @@ void	ft_di_print(t_conv *conv, va_list args)
 	{
 		nb *= -1;
 		conv->part_chr[0] = '-';
-		ft_putnbr_di(conv, nb);
+		ft_putnbr_u(conv, nb);
 		ft_exec_flags(conv, nb);
 	}
 	else
 	{
-		ft_putnbr_di(conv, nb);
+		ft_putnbr_u(conv, nb);
 		ft_exec_flags(conv, nb);
 	}
 }

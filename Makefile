@@ -6,7 +6,7 @@
 #    By: gumartin <gumartin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/03 18:56:21 by gumartin          #+#    #+#              #
-#    Updated: 2020/10/23 19:33:17 by gumartin         ###   ########.fr        #
+#    Updated: 2020/10/29 13:35:22 by gumartin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,6 +38,6 @@ tst: all
 	$(CC) $(FLAGS) main.c $(SRCS)
 
 batata:
-	gcc *.c printf.h
+	gcc -g *.c printf.h
 
 .PHONY: all clean fclean re

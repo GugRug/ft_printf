@@ -6,7 +6,7 @@
 /*   By: gumartin <gumartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/23 05:23:50 by gumartin          #+#    #+#             */
-/*   Updated: 2020/10/25 17:38:37 by gumartin         ###   ########.fr       */
+/*   Updated: 2020/10/29 13:48:19 by gumartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,14 +57,12 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	return (NULL);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char const *s1, char *s2)
 {
 	char	*join;
 	size_t	len;
 	size_t	i;
 
-	if (s1 == NULL)
-		return (s2);
 	len = ft_strlen(s1) + ft_strlen(s2);
 	i = 0;
 	join = (char*)malloc(sizeof(char) * len + 1);

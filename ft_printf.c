@@ -6,7 +6,7 @@
 /*   By: gumartin <gumartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/22 13:39:47 by gumartin          #+#    #+#             */
-/*   Updated: 2020/10/25 18:25:25 by gumartin         ###   ########.fr       */
+/*   Updated: 2020/10/29 14:09:01 by gumartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int		ft_printf(const char *fmt, ...)
 		if (fmt[conv.counter] == '%')
 		{
 			ft_flags(&conv, fmt, args);
+			conv.counter++;
 			clean_flags(&conv);
 		}
 		else
@@ -76,7 +77,9 @@ int		ft_valid_conv(t_conv *conv, const char *fmt, va_list args)
 void	ft_putflag(t_conv *conv, const char *fmt, va_list args)
 {
 	int	i;
+	
 	i = 0;
+
 	conv->flags = ft_substr(fmt, conv->counter, conv->len);
 	ft_convert(conv, fmt, args);
 	free(conv->flags);
@@ -86,17 +89,17 @@ void	ft_putflag(t_conv *conv, const char *fmt, va_list args)
 void	ft_convert(t_conv *conv, const char *fmt, va_list args)
 {	
 	ft_read_flags(conv, args);
-	if (fmt[(conv->counter)] == 'c')
+	if (conv->specifier == 'c')
 		ft_c_print(conv, args);
-	else if (fmt[(conv->counter)] == 's')
+	else if (conv->specifier == 's')
 		ft_s_print(conv, args);
-	else if (fmt[(conv->counter)] == 'p')
+	else if (conv->specifier == 'p')
 		ft_p_print(conv, args);
-	else if (fmt[(conv->counter)] == 'd' || (fmt[(conv->counter)] == 'i'))
+	else if (conv->specifier == 'd' || (conv->specifier == 'i'))
 		ft_di_print(conv, args);
-	else if (fmt[(conv->counter)] == 'u')
+	else if (conv->specifier == 'u')
 		ft_u_print(conv, args);
-	else if (fmt[(conv->counter)] == 'x' || (fmt[(conv->counter)] == 'X'))
+	else if (conv->specifier == 'x' || (conv->specifier == 'X'))
 		ft_xX_print(conv, args);
 		// if successe, than counter =+ len;
 }

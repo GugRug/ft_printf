@@ -6,21 +6,11 @@
 /*   By: gumartin <gumartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/24 08:16:56 by gumartin          #+#    #+#             */
-/*   Updated: 2020/10/25 17:40:29 by gumartin         ###   ########.fr       */
+/*   Updated: 2020/10/29 13:51:14 by gumartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
-
-void	ft_putnbr_di(t_conv *conv, int nb)
-{
-	if (nb < 0)
-	{
-		ft_putchar(conv, '-');
-		nb *= -1;
-	}
-	ft_putnbr_u(conv, nb);
-}
 
 void	ft_putnbr_u(t_conv *conv, unsigned int nb)
 {
@@ -54,5 +44,12 @@ void	int_to_char(t_conv *conv, size_t n)
 	else if (n < 16)
 		*c = n + (conv->specifier - ('x' - 'a' +10));
 	c[1] = '\0';
-	conv->sp_print = ft_strjoin(conv->sp_print, c);
+	if (conv->sp_print == NULL)
+	{
+		conv->sp_print = (char*)malloc(sizeof(char) * 2);
+		conv->sp_print[0] = c[0];
+		conv->sp_print[1] = c[1];
+	}
+	else
+		conv->sp_print = ft_strjoin(conv->sp_print, c);
 }
