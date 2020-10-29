@@ -22,22 +22,13 @@ void	ft_read_flags(t_conv *conv, va_list args)
 	i = 0;
 	while (conv->flags[i] != '\0')
 	{
-		if (conv->flags[i] == '-')				//position only will be used in validation data if necessary, maybe delete it later
-		{
+		if (conv->flags[i] == '-')
 			conv->minus.state = 1;
-			conv->minus.position = i;
-		}
-		else if (conv->flags[i] == '0')
-		{											//will only read the flag without mixing with width 
+		else if (conv->flags[i] == '0')				//will only read the flag without mixing with width 
 			if (conv->precision.state == 0)			//before precision
 				conv->zero.state = 1;
-			conv->zero.position = i;
-		}
 		else if (conv->flags[i] == '.')
-		{
 			conv->precision.state = 1;
-			conv->precision.position = i;
-		}
 		else if (conv->flags[i] == '*')				//need to paralell *, one to width and other to precision. do this function later
 		{
 			ft_flag_asterisk(conv, args);
@@ -67,17 +58,13 @@ void	ft_flag_asterisk(t_conv *conv, va_list args)
 {	//delete asterisk atributes if wont use it
 	if (conv->precision.state == 0)
 	{
-		conv->asterisk.state = 1;
-		conv->asterisk.content = va_arg(args, int);
 		conv->width.state = 1;
-		conv->width.content = conv->asterisk.content;
+		conv->width.content = va_arg(args, int);
 	}
 	else
 	{
-		conv->asterisk.state_2 = 1;
-		conv->asterisk.content_2 = va_arg(args, int);
 		conv->precision.state = 1;
-		conv->precision.content = conv->asterisk.content_2;
+		conv->precision.content = va_arg(args, int);
 	}
 }
 
@@ -93,6 +80,7 @@ int		ft_pf_atoi(t_conv *conv, char *str)
 		soma = (soma * 10) + (str[i] - '0');
 		i++;
 	}
+	conv->len_atoi = i;
 	return (soma);
 }
 
@@ -106,15 +94,67 @@ void	ft_exec_flags(t_conv *conv, size_t nb)
 	if (conv->width.state == 1 && conv->width.content != 0)
 		put_width(conv);
 	ft_putstr(conv, conv->sp_print);
+	free(conv->sp_print);
+	conv->sp_print = NULL;
 }
 
 //CREATE A CONV->SPE_STR, TO BE A - OR 0X IN THE BEGINING
-void	put_precision(t_conv conv)
+void	put_precision(t_conv *conv)
 {
+	char	*temp;
+	int		size;
 
+	size = conv->precision.content - ft_strlen(conv->sp_print);
+	if (size > 0)
+	{
+	temp = strbuild(conv, '0', size);
+	conv->sp_print =  ft_strjoin(temp, conv->sp_print);
+	if (conv->part_chr[0] != '\0')
+		conv->sp_print =  ft_strjoin(conv->part_chr, conv->sp_print);
+	free(temp);
+	temp = NULL;
+	}
 }
 
-void	put_width(t_conv conv)
+void	put_width(t_conv *conv)
 {
-	
+	char	*temp;
+	char	c;
+	int		size;
+
+	size = conv->width.content - ft_strlen(conv->sp_print);
+	c = ' ';
+	if (conv->zero.state == 1)
+		c = '0';
+	if (size > 0)
+	{
+	temp = strbuild(conv, c, size);
+	if(conv->minus.state == 0)
+		conv->sp_print =  ft_strjoin(temp, conv->sp_print);
+	else
+		conv->sp_print =  ft_strjoin(conv->sp_print, temp);
+	free(temp);
+	temp = NULL;
+	}
 }
+
+char	*strbuild(t_conv *conv, char c, int n)
+{
+	int		i;
+	char	*temp;
+
+	i = 0;
+	temp = (char*)malloc(sizeof(char*) * (n + 1));
+	while (i < n)
+	{
+		temp[i]	= c;
+		i++;
+	}
+	temp[i] = '\0';
+	return (temp);
+}
+
+
+
+
+

@@ -32,8 +32,6 @@ int		ft_printf(const char *fmt, ...)
 			conv.counter++;
 		}
 	}
-	free(conv.sp_print);
-	conv.sp_print = NULL;
 	va_end(args);
 	return (0);
 }

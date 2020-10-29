@@ -16,7 +16,6 @@ void	ft_s_print(t_conv *conv, va_list args)
 {
 	conv->zero.state = 0;
 	conv->precision.state = 0;
-	conv->asterisk.state_2 = 0;
 	//see flags
 	char	*temp;
 	temp = va_arg(args, char *);

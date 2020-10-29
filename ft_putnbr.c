@@ -55,5 +55,4 @@ void	int_to_char(t_conv *conv, size_t n)
 		*c = n + (conv->specifier - ('x' - 'a' +10));
 	c[1] = '\0';
 	conv->sp_print = ft_strjoin(conv->sp_print, c);
-	conv->sp_len = ft_strlen(conv->sp_print);
 }

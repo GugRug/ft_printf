@@ -26,12 +26,7 @@
 typedef struct	s_flags
 {
 	int			state;
-	int			state_2;
-	int			position;
 	size_t		content;
-	size_t		content_2;
-	char*		inic;
-	char*		end;
 }				t_flags;
 
 typedef struct	s_conv
@@ -39,15 +34,13 @@ typedef struct	s_conv
 	t_flags		minus;
 	t_flags		zero;
 	t_flags		width;			//atoi to use the wedth and precision
-	t_flags		asterisk;
 	t_flags		precision;
 	int			len;
 	int			ret;
-	int			success;
 	int			counter;
-	int			sp_len;
-	int			valid;
+	int			len_atoi;
 	char*		sp_print;
+	char		part_chr[3];
 	char*		flags;
 	char		specifier;
 }				t_conv;
@@ -103,7 +96,8 @@ void	ft_flag_num(t_conv *conv, va_list args, int *ref);
 void	ft_flag_asterisk(t_conv *conv, va_list args);
 int		ft_pf_atoi(t_conv *conv, char *str);
 void	ft_exec_flags(t_conv *conv, size_t nb);
-void	put_precision(t_conv conv);
-void	put_width(t_conv conv);
+void	put_precision(t_conv *conv);
+void	put_width(t_conv *conv);
+char	*strbuild(t_conv *conv, char c, int n);
 
 #endif

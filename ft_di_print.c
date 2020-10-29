@@ -22,16 +22,14 @@ void	ft_di_print(t_conv *conv, va_list args)
 	if (nb < 0)
 	{
 		nb *= -1;
+		conv->part_chr[0] = '-';
 		ft_putnbr_di(conv, nb);
 		ft_exec_flags(conv, nb);
-		ft_putchar(conv, '-');    //CHANGE IT
 	}
 	else
 	{
 		ft_putnbr_di(conv, nb);
 		ft_exec_flags(conv, nb);
 	}
-	free(conv->sp_print);
-	conv->sp_print = NULL;
 }
 
