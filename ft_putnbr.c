@@ -54,5 +54,6 @@ void	int_to_char(t_conv *conv, size_t n)
 	else if (n < 16)
 		*c = n + (conv->specifier - ('x' - 'a' +10));
 	c[1] = '\0';
-	strjoin(conv->sp_print, c);
+	conv->sp_print = ft_strjoin(conv->sp_print, c);
+	conv->sp_len = ft_strlen(conv->sp_print);
 }

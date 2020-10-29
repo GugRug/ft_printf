@@ -64,16 +64,20 @@ void	ft_flag_num(t_conv *conv, va_list args, int *ref)
 }
 
 void	ft_flag_asterisk(t_conv *conv, va_list args)
-{
+{	//delete asterisk atributes if wont use it
 	if (conv->precision.state == 0)
 	{
 		conv->asterisk.state = 1;
 		conv->asterisk.content = va_arg(args, int);
+		conv->width.state = 1;
+		conv->width.content = conv->asterisk.content;
 	}
 	else
 	{
 		conv->asterisk.state_2 = 1;
 		conv->asterisk.content_2 = va_arg(args, int);
+		conv->precision.state = 1;
+		conv->precision.content = conv->asterisk.content_2;
 	}
 }
 
@@ -89,29 +93,28 @@ int		ft_pf_atoi(t_conv *conv, char *str)
 		soma = (soma * 10) + (str[i] - '0');
 		i++;
 	}
-	conv->len_atoi = i;
 	return (soma);
 }
-// void	setflag(t_conv *conv, const char *fmt)
-// {
-// 	return;
-// }
 
+void	ft_exec_flags(t_conv *conv, size_t nb)
+{
+	// change conv->sp_len inside this func)
+	if (conv->minus.state == 1)
+		conv->zero.state == 0;
+	if (conv->precision.state == 1 && conv->precision.content != 0)
+		put_precision(conv); //Join string with zeros and sp_print, need negative treatment
+	if (conv->width.state == 1 && conv->width.content != 0)
+		put_width(conv);
+	ft_putstr(conv, conv->sp_print);
+}
 
+//CREATE A CONV->SPE_STR, TO BE A - OR 0X IN THE BEGINING
+void	put_precision(t_conv conv)
+{
 
-// void	ft_exec_flags(t_conv *conv, size_t nb)
-// {
-// 	ft_cut_flags(conv, nb);
-// }
+}
 
-// void	ft_cut_flags(t_conv *conv, size_t nb)
-// {
-// 	int i;
-// 	int size;
-
-// 	i = 0;
-// 	size = conv->len;
+void	put_width(t_conv conv)
+{
 	
-// }
-
-// void	ft_flags_side_check()
+}

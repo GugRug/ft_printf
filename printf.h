@@ -45,7 +45,7 @@ typedef struct	s_conv
 	int			ret;
 	int			success;
 	int			counter;
-	int			len_atoi;
+	int			sp_len;
 	int			valid;
 	char*		sp_print;
 	char*		flags;
@@ -75,6 +75,7 @@ void	ft_putstr(t_conv *conv, char *s);
 int		ft_isnum(char c);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
+size_t	ft_strlen(const char *str);
 /*
 **
 **		putnbr.c
@@ -101,8 +102,8 @@ void	ft_read_flags(t_conv *conv, va_list args);
 void	ft_flag_num(t_conv *conv, va_list args, int *ref);
 void	ft_flag_asterisk(t_conv *conv, va_list args);
 int		ft_pf_atoi(t_conv *conv, char *str);
-// void	ft_exec_flags(t_conv *conv, size_t nb);
-// void	ft_cut_flags(t_conv *conv, size_t nb);
-//void	setflag(t_conv *conv, const char *fmt);
+void	ft_exec_flags(t_conv *conv, size_t nb);
+void	put_precision(t_conv conv);
+void	put_width(t_conv conv);
 
 #endif

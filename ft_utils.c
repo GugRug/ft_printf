@@ -63,8 +63,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	len;
 	size_t	i;
 
-	if (s1 == NULL || s2 == NULL)
-		return (NULL);
+	if (s1 == NULL)
+		return (s2);
 	len = ft_strlen(s1) + ft_strlen(s2);
 	i = 0;
 	join = (char*)malloc(sizeof(char) * len + 1);
@@ -79,12 +79,12 @@ char	*ft_strjoin(char const *s1, char const *s2)
 }
 
 
-// size_t	ft_strlen(const char *str)
-// {
-// 	size_t i;
+size_t	ft_strlen(const char *str)
+{
+	size_t i;
 
-// 	i = 0;
-// 	while (str[i] != '\0')
-// 		i++;
-// 	return (i);
-// }
+	i = 0;
+	while (str[i] != '\0')
+		i++;
+	return (i);
+}

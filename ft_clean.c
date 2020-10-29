@@ -32,7 +32,7 @@ void	clean_flags(t_conv *conv)
 	conv->asterisk.content_2 = 0;
 	conv->precision.content = 0;
 	conv->len = 0;
-	conv->len_atoi = 0;
+	conv->sp_len = 0;
 	conv->success = 0;
 	conv->valid = 0;
 	conv->specifier = '\0';
