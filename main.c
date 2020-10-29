@@ -6,7 +6,7 @@
 /*   By: gumartin <gumartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 14:45:31 by gumartin          #+#    #+#             */
-/*   Updated: 2020/10/29 17:41:48 by gumartin         ###   ########.fr       */
+/*   Updated: 2020/10/29 18:27:15 by gumartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,22 @@
 
 int	main(void)
 {
-	int a = 5, b = 70; unsigned int un = 5; char c = 'W'; int he = 17080; 
+	int a = -5, b = 70; unsigned int un = 5; char c = 'W'; int he = 17080; 
+	int ft = 0;
+	int ft2 = 0;
 	char *str = "test71";
 	int *addr = &a;
 	// ft_printf("Isso e um teste basico:\n|%s|\n", "testa");
 	// printf("Isso e o pf %.5- real \n%d, %i, %u, %c, %s, %x, %X, %p\n", -234, 3834567899, 3834567899,'h', "abacate", 163, 32456, &a);
 //	ft_printf("Isso e um %.5- basico \n%d, %i, %u, %c, %s, %x, %X, %p\n", -234, 3834567899, 3834567899,'h', "abacate", 163, 32456, &a);
+	
+	ft = ft_printf("ft_printf |%-*d|	-	", 3, a);
+	ft2 = printf("pf_printf |%-*d|	-	", 3, a);
+	printf("ft_printf |%d|----	-	", ft);printf("----|%d| Correto\n", ft2);
 	ft_printf("INTEGERS\n");
 	ft_printf("ft_printf |%-*d|	-	", 3, a);printf("|%-*d| Correto\n", 3, a, b);
-	ft_printf("ft_printf |%05d|	-	", a);printf("|%05d| Correto\n", a);
 	ft_printf("ft_printf |%-05d|	-	", a);printf("|%-05d| Correto\n", a);
+	ft_printf("ft_printf |%-5d|	-	", a);printf("|%-5d| Correto\n", a);
 	ft_printf("ft_printf |%.9d|	-	", a);printf("|%.9d| Correto\n", a);
 	ft_printf("ft_printf |%-.9d|	-	", a);printf("|%-.9d| Correto\n", a);
 	ft_printf("ft_printf |%5.2d|	-	", a);printf("|%5.2d| Correto\n", a);
@@ -67,7 +73,7 @@ int	main(void)
 	ft_printf("ft_printf |%010.8s|	-	", str);printf("|%010.8s| Correto\n", str);
 
 	ft_printf("Adress -> %p\n", addr);
-	ft_printf("ft_printf |%-*p|	-	", 8, addr);printf("|%-*p| Correto\n", 20, addr);
+	ft_printf("ft_printf |%-*p|	-	", 15, addr);printf("|%-*p| Correto\n", 15, addr);
 	ft_printf("ft_printf |%020.10p|	-	", addr);printf("|%020.10p| Correto\n", addr);
 	ft_printf("ft_printf |%-050p|	-	", addr);printf("|%-050p| Correto\n", addr);
 	ft_printf("ft_printf |%.90p|	-	", addr);printf("|%.90p| Correto\n", addr);

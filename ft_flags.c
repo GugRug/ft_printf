@@ -6,7 +6,7 @@
 /*   By: gumartin <gumartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/23 19:18:07 by gumartin          #+#    #+#             */
-/*   Updated: 2020/10/29 16:45:04 by gumartin         ###   ########.fr       */
+/*   Updated: 2020/10/29 18:15:56 by gumartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,9 +95,11 @@ void	ft_exec_flags(t_conv *conv)
 		conv->zero.state == 0;
 	if (conv->precision.state == 1 && conv->precision.content != 0)
 		put_precision(conv); //Join string with zeros and sp_print, need negative treatment
+	if (conv->part_chr[0] != '\0' && conv->zero.state == 0)
+		conv->sp_print =  ft_strjoin(conv->part_chr, conv->sp_print);
 	if (conv->width.state == 1 && conv->width.content != 0)
 		put_width(conv);
-	if (conv->part_chr[0] != '\0')
+	if (conv->part_chr[0] != '\0' && conv->zero.state == 1)
 		conv->sp_print =  ft_strjoin(conv->part_chr, conv->sp_print);
 	ft_putstr(conv, conv->sp_print);
 	free(conv->sp_print);
@@ -126,8 +128,12 @@ void	put_width(t_conv *conv)
 	char	*temp;
 	char	c;
 	int		size;
+	int		len;
 
-	size = conv->width.content - (ft_strlen(conv->sp_print) + ft_strlen(conv->part_chr));
+	len = 0;
+	if (conv->zero.state == 1)
+		len = ft_strlen(conv->part_chr);
+	size = conv->width.content - (ft_strlen(conv->sp_print) + len);
 	c = ' ';
 	if (conv->zero.state == 1 && conv->minus.state == 0)
 		c = '0';
