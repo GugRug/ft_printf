@@ -6,7 +6,7 @@
 /*   By: gumartin <gumartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/22 14:00:24 by gumartin          #+#    #+#             */
-/*   Updated: 2020/10/30 16:53:32 by gumartin         ###   ########.fr       */
+/*   Updated: 2020/10/30 17:33:07 by gumartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,12 +61,12 @@ void	clean_flags(t_conv *conv);
 **		Print
 */
 void	ft_c_print(t_conv *conv, va_list args);
-void	ft_s_print(t_conv *conv, va_list args);
 void	ft_p_print(t_conv *conv, va_list args);
 void	ft_di_print(t_conv *conv, va_list args);
 void	ft_u_print(t_conv *conv, va_list args);
 void	ft_xX_print(t_conv *conv, va_list args);
 void	ft_pct_print(t_conv *conv, va_list args);
+void	ft_s_print(t_conv *conv, va_list args);
 /*
 **
 **		putnbr.c

@@ -13,6 +13,23 @@
 
 #include "printf.h"
 
+char	*ft_string_null(t_conv *conv)
+{
+	char *temp;
+
+	conv->invalid = 1;
+	conv->sp_print = (char*)malloc(sizeof(char*) * 7);
+	temp = (char*)malloc(sizeof(char*) * 7);
+	temp[0] = '(';
+	temp[1] = 'n';
+	temp[2] = 'u';
+	temp[3] = 'l';
+	temp[4] = 'l';
+	temp[5] = ')';
+	temp[6] = '\0';
+	return (temp);
+}
+
 void	ft_s_print(t_conv *conv, va_list args)
 {
 	size_t	i;
@@ -21,8 +38,8 @@ void	ft_s_print(t_conv *conv, va_list args)
 	conv->zero.state = 0;
 	i = 0;
 	temp = va_arg(args, char *);
-	if (!temp)
-		conv->invalid = 1;
+	if (!temp)	
+		temp = ft_string_null(conv);
 	else
 		conv->sp_print = (char*)malloc(sizeof(char*) * ft_strlen(temp) + 2);
 	if (conv->precision.state == 1 && temp)
@@ -39,14 +56,11 @@ void	ft_s_print(t_conv *conv, va_list args)
 		}
 	if (conv->invalid == 1)
 	{
-		if (conv->precision.content >= 0 && conv->precision.content < 6
-			&& conv->precision.state == 1)
-			ft_putstr(conv, "");
-		else
-			ft_putstr(conv, "(null)");
+		free(temp);
+		temp = NULL;
+		conv->invalid = 0;
 	}
-	else
-		conv->sp_print[i] = '\0';	
+	conv->sp_print[i] = '\0';	
 	conv->precision.state = 0;
 	conv->precision.content = 0;
 	ft_exec_flags(conv);
