@@ -6,7 +6,7 @@
 /*   By: gumartin <gumartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 14:45:31 by gumartin          #+#    #+#             */
-/*   Updated: 2020/10/30 19:49:52 by gumartin         ###   ########.fr       */
+/*   Updated: 2020/10/30 20:08:33 by gumartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	main(void)
 	int a = -10, b = 50; unsigned int un = 50; char c = 0; int he = 17080; 
 	int ft = 0;
 	int ft2 = 0;
-	char *str = NULL;
+	char *str = "hi low";
 	size_t *addr = NULL;
 	// ft_printf("Isso e um teste basico:\n|%d|\n", 35);
 	// ft_printf("Isso e um teste basico:\n|%s|\n", "testa");
@@ -65,19 +65,19 @@ int	main(void)
 	// ft_printf("ft_printf |%5.2c|	-	", c);printf("|%5.2c| Correto\n", c);
 	// ft_printf("ft_printf |%010.2c|	-	", c);printf("|%010.2c| Correto\n", c);
 
-	// ft_printf("String -> %s\n", str);
-	// ft_printf("ft_printf |%-*s|	-	", 8, str);printf("|%-*s| Correto\n", 8, str);
-	// ft_printf("ft_printf |%050s|	-	", str);printf("|%050s| Correto\n", str);
-	// ft_printf("ft_printf |%-050s|	-	", str);printf("|%-050s| Correto\n", str);
-	// ft_printf("ft_printf |%.9s|	-	", str);printf("|%.9s| Correto\n", str);
-	// ft_printf("ft_printf |%-.9s|	-	", str);printf("|%-.9s| Correto\n", str);
-	// ft_printf("ft_printf |%5.4s|	-	", str);printf("|%5.4s| Correto\n", str);
-	// ft_printf("ft_printf |%010.8s|	-	", str);printf("|%010.8s| Correto\n", str);
+	ft_printf("String -> %s\n", str);
+	ft_printf("ft_printf |%-*s|	-	", 8, str);printf("|%-*s| Correto\n", 8, str);
+	ft_printf("ft_printf |%010s|	-	", str);printf("|%010s| Correto\n", str);
+	ft_printf("ft_printf |%-010s|	-	", str);printf("|%-010s| Correto\n", str);
+	ft_printf("ft_printf |%.9s|	-	", str);printf("|%.9s| Correto\n", str);
+	ft_printf("ft_printf |%-.9s|	-	", str);printf("|%-.9s| Correto\n", str);
+	ft_printf("ft_printf |%5.4s|	-	", str);printf("|%5.4s| Correto\n", str);
+	ft_printf("ft_printf |%010.8s|	-	", str);printf("|%010.8s| Correto\n", str);
 
-	ft_printf("Adress -> %p\n", addr);
-	ft_printf("ft_printf |%2p|	-	", addr);			printf("|%2p| Correto\n", addr);
-	ft_printf("ft_printf |%2.p|	-	", addr);		printf("|%2.p| Correto\n", addr);
-	ft_printf("ft_printf |%.5p|	-	", addr);		printf("|%.5p| Correto\n", addr);
+	// ft_printf("Adress -> %p\n", addr);
+	// ft_printf("ft_printf |%2p|	-	", addr);			printf("|%2p| Correto\n", addr);
+	// ft_printf("ft_printf |%2.p|	-	", addr);		printf("|%2.p| Correto\n", addr);
+	// ft_printf("ft_printf |%.5p|	-	", addr);		printf("|%.5p| Correto\n", addr);
 	// ft_printf("ft_printf |%.90p|	-	", addr);		printf("|%.90p| Correto\n", addr);
 	// ft_printf("ft_printf |%-.9p|	-	", addr);		printf("|%-.9p| Correto\n", addr);
 	// ft_printf("ft_printf |%5.4p|	-	", addr);		printf("|%5.4p| Correto\n", addr);
