@@ -6,7 +6,7 @@
 /*   By: gumartin <gumartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/23 05:23:50 by gumartin          #+#    #+#             */
-/*   Updated: 2020/10/30 13:00:07 by gumartin         ###   ########.fr       */
+/*   Updated: 2020/10/30 16:22:28 by gumartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,6 @@ void	ft_putstr(t_conv *conv, char *s)
 		s++;
 		}
 	}
-}
-
-int		ft_isnum(char c)
-{
-	if (!(c >= '0' && c <= '9'))
-		return (0);
-	return (1);
 }
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
@@ -92,50 +85,3 @@ char	*ft_strjoin(t_conv *conv, char *s1, char *s2)
 	return (join);
 }
 
-// char	*ft_strjoin(char *s1, char *s2)
-// {
-// 	char	*str;
-// 	int		i;
-// 	int		j;
-
-// 	i = ft_strlen(s1);
-// 	j = ft_strlen(s2);
-// 	str = (char *)ft_calloc(i + j + 1, sizeof(char));
-// 	i = 0;
-// 	while (s1[i])
-// 	{
-// 		str[i] = s1[i];
-// 		i++;
-// 	}
-// 	j = 0;
-// 	while (s2[j])
-// 	{
-// 		str[i + j] = s2[j];
-// 		j++;
-// 	}
-// 	return (str);
-// }
-
-// void	*ft_calloc(size_t nmemb, size_t size)
-// {
-// 	size_t	i;
-// 	char	*p;
-
-// 	if (nmemb == 0 || size == 0)
-// 		return (NULL);
-// 	p = malloc(nmemb * size);
-// 	i = -1;
-// 	while (++i < nmemb * size)
-// 		p[i] = '\0';
-// 	return (p);
-// }
-
-size_t	ft_strlen(char *str)
-{
-	size_t i;
-
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return (i);
-}

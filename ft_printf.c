@@ -6,7 +6,7 @@
 /*   By: gumartin <gumartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/22 13:39:47 by gumartin          #+#    #+#             */
-/*   Updated: 2020/10/30 15:09:01 by gumartin         ###   ########.fr       */
+/*   Updated: 2020/10/30 16:32:36 by gumartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,7 @@ int		ft_printf(const char *fmt, ...)
 
 void	ft_flags(t_conv *conv, const char *fmt, va_list args)
 {
-	conv->counter++;	
-	if (fmt[(conv->counter)] == '%')
-	{
-		ft_putchar(conv, '%');
-		return;
-	}
+	conv->counter++;
 	if (ft_valid_conv(conv, fmt, args))
 		return;
 	ft_putchar(conv, fmt[(conv->counter)]);
@@ -62,16 +57,11 @@ int		ft_valid_conv(t_conv *conv, const char *fmt, va_list args)
 		else if (fmt[(conv->counter + conv->len)] == 'c' || fmt[(conv->counter + conv->len)] == 's' ||
 				fmt[(conv->counter + conv->len)] == 'p' || fmt[(conv->counter + conv->len)] == 'd' ||
 				fmt[(conv->counter + conv->len)] == 'i' || fmt[(conv->counter + conv->len)] == 'u' ||
-				fmt[(conv->counter + conv->len)] == 'x' || fmt[(conv->counter + conv->len)] == 'X')
+				fmt[(conv->counter + conv->len)] == 'x' || fmt[(conv->counter + conv->len)] == 'X' ||
+				fmt[(conv->counter + conv->len)] == '%')
 		{
 			conv->specifier = fmt[(conv->counter + conv->len)];
 			ft_putflag(conv, fmt, args);
-			return (1);
-		}
-		else if(fmt[(conv->counter + conv->len)] == '%')
-		{	
-			ft_putchar(conv, '%');
-			conv->counter += conv->len;
 			return (1);
 		}
 		else 
@@ -103,8 +93,6 @@ void	ft_convert(t_conv *conv, va_list args)
 		ft_u_print(conv, args);
 	else if (conv->specifier == 'x' || (conv->specifier == 'X'))
 		ft_xX_print(conv, args);
-		// if successe, than counter =+ len;
+	else if (conv->specifier == '%')
+		ft_pct_print(conv, args);
 }
-
-//printf(" ---A substr e: |%s| ---", conv->flags);
-//ft_putstr(conv, "{Teste}\n"); //TESTANDO

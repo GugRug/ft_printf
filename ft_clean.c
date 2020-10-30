@@ -6,14 +6,14 @@
 /*   By: gumartin <gumartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/23 19:18:01 by gumartin          #+#    #+#             */
-/*   Updated: 2020/10/29 23:48:25 by gumartin         ###   ########.fr       */
+/*   Updated: 2020/10/30 16:00:29 by gumartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
 void	clean_flags(t_conv *conv)
-{	//state 0 empty, 1 full, 2 used
+{
 	conv->minus.state = 0;
 	conv->zero.state = 0;
 	conv->width.state = 0;

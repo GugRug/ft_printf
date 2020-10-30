@@ -6,7 +6,7 @@
 /*   By: gumartin <gumartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/23 19:18:10 by gumartin          #+#    #+#             */
-/*   Updated: 2020/10/29 16:29:38 by gumartin         ###   ########.fr       */
+/*   Updated: 2020/10/30 16:35:19 by gumartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 	
 void	ft_di_print(t_conv *conv, va_list args)
 {
-	// Null and Nil to implement later
-	//see flags 
 	int		nb;
 
 	nb = va_arg(args, int);
@@ -32,4 +30,3 @@ void	ft_di_print(t_conv *conv, va_list args)
 		ft_exec_flags(conv);
 	}
 }
-

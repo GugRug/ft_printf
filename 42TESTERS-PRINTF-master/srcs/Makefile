@@ -10,7 +10,7 @@ NAME		= tester.out
 
 CC			= gcc
 
-CFLAGS		= -w -Wall -Werror -Wextra -D PRINT="ft_printf" -g3 #-fsanitize=address
+CFLAGS		= -w -Wall -Werror -Wextra -D PRINT="ft_printf" -g3 -fsanitize=address
 
 RM			= rm -f
 
@@ -22,7 +22,6 @@ PRINTF_MAKE	= ${MAKE} -C ${LIBPATH}
 
 $(NAME):	${OBJS} printmake
 			${CC} ${CFLAGS} ${OBJS} ${LIB} -o ${NAME}
-			valgrind --leak-check=full ./tester.out
 
 printmake:	
 			${PRINTF_MAKE}
