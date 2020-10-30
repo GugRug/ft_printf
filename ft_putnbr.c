@@ -6,7 +6,7 @@
 /*   By: gumartin <gumartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/24 08:16:56 by gumartin          #+#    #+#             */
-/*   Updated: 2020/10/29 17:16:09 by gumartin         ###   ########.fr       */
+/*   Updated: 2020/10/30 12:57:18 by gumartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	ft_putnbr_xX(t_conv *conv, size_t nb)
 
 void	int_to_char(t_conv *conv, size_t n)
 {
-	char	c[2];
+	static char	c[2];
 	if (n < 10)
 		*c = n + '0';
 	else if (n < 16 && conv->specifier == 'p')
@@ -46,14 +46,12 @@ void	int_to_char(t_conv *conv, size_t n)
 	c[1] = '\0';
 	if (conv->sp_print == NULL)
 	{
-	//	conv->sp_print = (char*)malloc(sizeof(char*) * 2);
+		conv->sp_print = (char*)malloc(sizeof(char*) * 2);
 		conv->sp_print[0] = c[0];
 		conv->sp_print[1] = c[1];
 	}
 	else
 	{
-		// free (conv->sp_print);
-		// conv->sp_print = NULL;
-		conv->sp_print = ft_strjoin(conv->sp_print, c);
+		conv->sp_print = ft_strjoin(conv, conv->sp_print, c);
 	}
 }

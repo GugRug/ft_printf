@@ -6,7 +6,7 @@
 /*   By: gumartin <gumartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/22 14:00:24 by gumartin          #+#    #+#             */
-/*   Updated: 2020/10/29 23:51:17 by gumartin         ###   ########.fr       */
+/*   Updated: 2020/10/30 14:40:46 by gumartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 typedef struct	s_flags
 {
 	int			state;
-	size_t		content;
+	int			content;
 }				t_flags;
 
 typedef struct	s_conv
@@ -68,8 +68,8 @@ void	ft_putchar(t_conv *conv, char c);
 void	ft_putstr(t_conv *conv, char *s);
 int		ft_isnum(char c);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
-char	*ft_strjoin(char *s1, char *s2);
-void	*ft_calloc(size_t nmemb, size_t size)
+char	*ft_strjoin(t_conv *conv, char *s1, char *s2);
+void	*ft_calloc(size_t nmemb, size_t size);
 size_t	ft_strlen(char *str);
 /*
 **
@@ -93,6 +93,7 @@ void	ft_xX_print(t_conv *conv, va_list args);
 **		Flags
 */
 void	ft_read_flags(t_conv *conv, va_list args);
+void	ft_correct_flags(t_conv *conv);
 void	ft_flag_num(t_conv *conv, int *ref);
 void	ft_flag_asterisk(t_conv *conv, va_list args);
 int		ft_pf_atoi(t_conv *conv, char *str);

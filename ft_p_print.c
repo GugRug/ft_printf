@@ -6,7 +6,7 @@
 /*   By: gumartin <gumartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/23 19:52:14 by gumartin          #+#    #+#             */
-/*   Updated: 2020/10/30 00:14:35 by gumartin         ###   ########.fr       */
+/*   Updated: 2020/10/30 13:14:57 by gumartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ void	ft_p_print(t_conv *conv, va_list args)
 	{
 		conv->part_chr[0] = '0';
 		conv->part_chr[1] = 'x';
+		ft_putnbr_xX(conv, nb);
 	}
-	ft_putnbr_xX(conv, nb);
 	if (conv->invalid == 1)
 	{
 	 	ft_putstr(conv, "(nil)");
