@@ -6,7 +6,7 @@
 /*   By: gumartin <gumartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/22 14:00:24 by gumartin          #+#    #+#             */
-/*   Updated: 2020/10/30 16:33:53 by gumartin         ###   ########.fr       */
+/*   Updated: 2020/10/30 16:53:32 by gumartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ typedef struct	s_conv
 	int			counter;
 	int			len_atoi;
 	int			invalid;
+	int			char_zero;
 	char*		sp_print;
 	char		part_chr[3];
 	char*		flags;

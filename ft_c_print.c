@@ -6,7 +6,7 @@
 /*   By: gumartin <gumartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/23 19:52:14 by gumartin          #+#    #+#             */
-/*   Updated: 2020/10/30 00:21:19 by gumartin         ###   ########.fr       */
+/*   Updated: 2020/10/30 17:09:19 by gumartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ void	ft_c_print(t_conv *conv, va_list args)
 	conv->sp_print[1] = '\0';
 	if (conv->sp_print[0] == '\0')
 	{
-		conv->width.content--;
-		conv->ret++;
+		conv->sp_print[0] = 'W';
+		conv->char_zero = 1;
 	}
 	ft_exec_flags(conv);
 }

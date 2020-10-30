@@ -6,7 +6,7 @@
 /*   By: gumartin <gumartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 14:45:31 by gumartin          #+#    #+#             */
-/*   Updated: 2020/10/30 16:36:56 by gumartin         ###   ########.fr       */
+/*   Updated: 2020/10/30 17:09:30 by gumartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	main(void)
 {
-	int a = -10, b = 50; unsigned int un = 50; char c = 1; int he = 17080; 
+	int a = -10, b = 50; unsigned int un = 50; char c = 0; int he = 17080; 
 	int ft = 0;
 	int ft2 = 0;
 	char *str = NULL;
@@ -25,9 +25,9 @@ int	main(void)
 	// ft_printf("Isso e um teste basico \n%d, %i, %u, %c, %s, %x, %X, %p\n", -234, 3834567899, 3834567899,'h', "abacate", 163, 32456, &a);
 	// ft_printf("Isso e um teste basico \n%c, %-c, %12c, %-3c, %-1c, %1c, %-2c, %-4c, %5c, %3c, %-*c, %-*c, %*c, %*c\n", c, c, c, c, c, c, c, c, c, c, 12, c, 12, c, 12, c, 12, c);
 	// printf("Isso e um teste basico \n%c, %-c, %12c, %-3c, %-1c, %1c, %-2c, %-4c, %5c, %3c, %-*c, %-*c, %*c, %*c\n", c, c, c, c, c, c, c, c, c, c, 12, c, 12, c, 12, c, 12, c);
-	// ft2 = printf("pf_printf |%010.*% e %d\n", 0, 1);
-	// ft = ft_printf("ft_printf |%010.*% e %d\n", 0, 1);
-
+	ft = ft_printf("ft_printf |%-*c|\n", 5, c);
+	ft2 = printf("printf_pf |%-*c|\n", 5, c);
+	printf("ft_printf: %d | printf: %d\n", ft, ft2);
 	// ft_printf("INTEGERS\n");
 	// ft_printf("ft_printf |%-*d|	-	", 3, a);printf("|%-*d| Correto\n", 3, a, b);
 	// ft_printf("ft_printf |%-05d|	-	", a);printf("|%-05d| Correto\n", a);
@@ -47,14 +47,14 @@ int	main(void)
 	// ft_printf("ft_printf |%5.2u|	-	", un);printf("|%5.2u| Correto\n", un);
 	// ft_printf("ft_printf |%010.2u|	-	", un);printf("|%010.2u| Correto\n", un);
 
-	ft_printf("HEXDx -> %x\n", he);
-	ft_printf("ft_printf |%-*x|	-	", 8, he);printf("|%-*x| Correto\n", 8, he);
-	ft_printf("ft_printf |%05x|	-	", he);printf("|%05x| Correto\n", he);
-	ft_printf("ft_printf |%-05x|	-	", he);printf("|%-05x| Correto\n", he);
-	ft_printf("ft_printf |%.9x|	-	", he);printf("|%.9x| Correto\n", he);
-	ft_printf("ft_printf |%-.9x|	-	", he);printf("|%-.9x| Correto\n", he);
-	ft_printf("ft_printf |%5.2x|	-	", he);printf("|%5.2x| Correto\n", he);
-	ft_printf("ft_printf |%010.8x|	-	", he);printf("|%010.8x| Correto\n", he);
+	// ft_printf("HEXDx -> %x\n", he);
+	// ft_printf("ft_printf |%-*x|	-	", 8, he);printf("|%-*x| Correto\n", 8, he);
+	// ft_printf("ft_printf |%05x|	-	", he);printf("|%05x| Correto\n", he);
+	// ft_printf("ft_printf |%-05x|	-	", he);printf("|%-05x| Correto\n", he);
+	// ft_printf("ft_printf |%.9x|	-	", he);printf("|%.9x| Correto\n", he);
+	// ft_printf("ft_printf |%-.9x|	-	", he);printf("|%-.9x| Correto\n", he);
+	// ft_printf("ft_printf |%5.2x|	-	", he);printf("|%5.2x| Correto\n", he);
+	// ft_printf("ft_printf |%010.8x|	-	", he);printf("|%010.8x| Correto\n", he);
 
 	// ft_printf("CHARS\n");
 	// ft_printf("ft_printf |%-*c|	-	", 3, c);printf("|%-*c| Correto\n", 3, c);
@@ -82,6 +82,5 @@ int	main(void)
 	// ft_printf("ft_printf |%-.9p|	-	", addr);printf("|%-.9p| Correto\n", addr);
 	// ft_printf("ft_printf |%5.4p|	-	", addr);printf("|%5.4p| Correto\n", addr);
 	// ft_printf("ft_printf |%15.30p|	-	", addr);printf("|%15.30p| Correto\n", addr);
-
 	return (0);
 }
