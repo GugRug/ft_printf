@@ -46,10 +46,14 @@ void	int_to_char(t_conv *conv, size_t n)
 	c[1] = '\0';
 	if (conv->sp_print == NULL)
 	{
-		conv->sp_print = (char*)malloc(sizeof(char*) * 2);
+	//	conv->sp_print = (char*)malloc(sizeof(char*) * 2);
 		conv->sp_print[0] = c[0];
 		conv->sp_print[1] = c[1];
 	}
 	else
+	{
+		// free (conv->sp_print);
+		// conv->sp_print = NULL;
 		conv->sp_print = ft_strjoin(conv->sp_print, c);
+	}
 }

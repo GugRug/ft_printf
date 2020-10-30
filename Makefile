@@ -53,4 +53,7 @@ re: fclean all
 batata:
 	gcc -g *.c  printf.h
 
+valg: batata
+	valgrind --leak-check=full ./a.out
+
 .PHONY: all clean fclean re

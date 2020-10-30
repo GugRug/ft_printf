@@ -68,8 +68,9 @@ void	ft_putchar(t_conv *conv, char c);
 void	ft_putstr(t_conv *conv, char *s);
 int		ft_isnum(char c);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
-char	*ft_strjoin(char const *s1, char *s2);
-size_t	ft_strlen(const char *str);
+char	*ft_strjoin(char *s1, char *s2);
+void	*ft_calloc(size_t nmemb, size_t size)
+size_t	ft_strlen(char *str);
 /*
 **
 **		putnbr.c

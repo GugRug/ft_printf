@@ -14,18 +14,19 @@
 
 int	main(void)
 {
-	int a = -5, b = 70; unsigned int un = 5; char c = 'W'; int he = 17080; 
+	int a = -5, b = 70; unsigned int un = 5; char c = 0; int he = 17080; 
 	int ft = 0;
 	int ft2 = 0;
 	char *str = "test71";
 	int *addr = &a;
+	ft_printf("Isso e um teste basico:\n|%d|\n", 35);
 	// ft_printf("Isso e um teste basico:\n|%s|\n", "testa");
 	// printf("Isso e o pf %.5- real \n%d, %i, %u, %c, %s, %x, %X, %p\n", -234, 3834567899, 3834567899,'h', "abacate", 163, 32456, &a);
-//	ft_printf("Isso e um %.5- basico \n%d, %i, %u, %c, %s, %x, %X, %p\n", -234, 3834567899, 3834567899,'h', "abacate", 163, 32456, &a);
+	//ft_printf("Isso e um %.5- basico \n%d, %i, %u, %c, %s, %x, %X, %p\n", -234, 3834567899, 3834567899,'h', "abacate", 163, 32456, &a);
 	
-	ft2 = printf("pf_printf |%s|\n", NULL);
-	ft = ft_printf("ft_printf |%s|\n", NULL);
-	printf("ft_printf return:|%d|\n", ft);printf("pf_printf return:|%d|\n", ft2);
+	// ft2 = printf("ft_printf |%c, %-c, %12c, %-3c, %-1c, %1c, %-2c, %-4c, %5c, %3c, %-*c, %-*c, %*c, %*c|\n", c, c, c, c, c, c, c, c, c, c, 12, c, 12, c, 12, c, 12, c);
+	// ft = ft_printf("pf_printf |%c, %-c, %12c, %-3c, %-1c, %1c, %-2c, %-4c, %5c, %3c, %-*c, %-*c, %*c, %*c|\n", c, c, c, c, c, c, c, c, c, c, 12, c, 12, c, 12, c, 12, c);
+	// printf("ft_printf return:|%d|\n", ft);printf("pf_printf return:|%d|\n", ft2);
 	// ft_printf("INTEGERS\n");
 	// ft_printf("ft_printf |%-*d|	-	", 3, a);printf("|%-*d| Correto\n", 3, a, b);
 	// ft_printf("ft_printf |%-05d|	-	", a);printf("|%-05d| Correto\n", a);

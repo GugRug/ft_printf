@@ -114,7 +114,7 @@ void	ft_exec_flags(t_conv *conv)
 	if (conv->width.state == 1 && conv->width.content != 0)
 		put_width(conv);
 	if (conv->part_chr[0] != '\0' && conv->zero.state == 1)
-		conv->sp_print =  ft_strjoin(conv->part_chr, conv->sp_print);
+		conv->sp_print = ft_strjoin(conv->part_chr, conv->sp_print);
 	ft_putstr(conv, conv->sp_print);
 	free(conv->sp_print);
 	conv->sp_print = NULL;

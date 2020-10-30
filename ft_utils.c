@@ -73,27 +73,64 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	return (NULL);
 }
 
-char	*ft_strjoin(char const *s1, char *s2)
-{
-	char	*join;
-	size_t	len;
-	size_t	i;
+// char	*ft_strjoin(char *s1, char *s2)
+// {
+// 	char	*join;
+// 	size_t	len;
+// 	size_t	i;
 
-	len = ft_strlen(s1) + ft_strlen(s2);
+// 	len = ft_strlen(s1) + ft_strlen(s2);
+// 	i = 0;
+// 	join = (char*)malloc(sizeof(char) * len + 1);
+// 	if (join == NULL)
+// 		return (NULL);
+// 	while (*s1 != '\0' && i < len)
+// 		join[i++] = *(s1++);
+// 	while (*s2 != '\0' && i < len)
+// 		join[i++] = *(s2++);
+// 	join[i] = '\0';
+// 	return (join);
+// }
+
+char	*ft_strjoin(char *s1, char *s2)
+{
+	char	*str;
+	int		i;
+	int		j;
+
+	i = ft_strlen(s1);
+	j = ft_strlen(s2);
+	str = (char *)ft_calloc(i + j + 1, sizeof(char));
 	i = 0;
-	join = (char*)malloc(sizeof(char) * len + 1);
-	if (join == NULL)
-		return (NULL);
-	while (*s1 != '\0' && i < len)
-		join[i++] = *(s1++);
-	while (*s2 != '\0' && i < len)
-		join[i++] = *(s2++);
-	join[i] = '\0';
-	return (join);
+	while (s1[i])
+	{
+		str[i] = s1[i];
+		i++;
+	}
+	j = 0;
+	while (s2[j])
+	{
+		str[i + j] = s2[j];
+		j++;
+	}
+	return (str);
 }
 
+void	*ft_calloc(size_t nmemb, size_t size)
+{
+	size_t	i;
+	char	*p;
 
-size_t	ft_strlen(const char *str)
+	if (nmemb == 0 || size == 0)
+		return (NULL);
+	p = malloc(nmemb * size);
+	i = -1;
+	while (++i < nmemb * size)
+		p[i] = '\0';
+	return (p);
+}
+
+size_t	ft_strlen(char *str)
 {
 	size_t i;
 
