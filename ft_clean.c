@@ -6,7 +6,7 @@
 /*   By: gumartin <gumartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/23 19:18:01 by gumartin          #+#    #+#             */
-/*   Updated: 2020/10/29 17:03:41 by gumartin         ###   ########.fr       */
+/*   Updated: 2020/10/29 23:48:25 by gumartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	clean_flags(t_conv *conv)
 	conv->precision.content = 0;
 	conv->len = 0;
 	conv->len_atoi = 0;
+	conv->invalid = 0;
 	conv->specifier = '\0';
 	conv->part_chr[0] = '\0';
 	conv->part_chr[1] = '\0';

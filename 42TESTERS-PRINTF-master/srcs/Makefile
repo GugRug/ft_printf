@@ -1,7 +1,6 @@
 PREFIXE		= ./
 
-LIBPATH		= ../../Makefile
-
+LIBPATH		= ../../
 SRCS		= $(addprefix ${PREFIXE}, main_tester.c)
 
 OBJS		= ${SRCS:.c=.o}

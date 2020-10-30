@@ -6,7 +6,7 @@
 /*   By: gumartin <gumartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/23 19:18:07 by gumartin          #+#    #+#             */
-/*   Updated: 2020/10/29 18:15:56 by gumartin         ###   ########.fr       */
+/*   Updated: 2020/10/29 23:28:25 by gumartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,25 +28,26 @@ void	ft_read_flags(t_conv *conv, va_list args)
 		{						//will only read the flag without mixing with width 
 			if (conv->precision.state == 0)			//before precision
 				conv->zero.state = 1;
+			else if(conv->zero.state = 1)
+				conv->zero.state = 0;
 		}
 		else if (conv->flags[i] == '.')
 		{
 			conv->precision.state = 1;
-			conv->zero.state = 0;
 		}
 		else if (conv->flags[i] == '*')				//need to paralell *, one to width and other to precision. do this function later
 		{
 			ft_flag_asterisk(conv, args);
 		}
 		else if (ft_isnum(conv->flags[i]))
-			ft_flag_num(conv, args, &i);			//deal with all sequencial numbers from here, after it, 
+			ft_flag_num(conv, &i);			//deal with all sequencial numbers from here, after it, 
   													//need only i++ one time to skip number
 		i++;
 	}
 }
 
 
-void	ft_flag_num(t_conv *conv, va_list args, int *ref)
+void	ft_flag_num(t_conv *conv, int *ref)
 {
 	if (conv->precision.state == 0)
 	{
@@ -61,14 +62,27 @@ void	ft_flag_num(t_conv *conv, va_list args, int *ref)
 
 void	ft_flag_asterisk(t_conv *conv, va_list args)
 {	//delete asterisk atributes if wont use it
+	int	i;
+	
+	i = va_arg(args, int);
+	if (i < 0)
+	{
+		if (conv->precision.state == 0)	
+		{
+			i *= -1;
+			conv->minus.state = 1;
+		}
+	}
+	else if (i <= 0 || conv->precision.state == 1)
+		conv->zero.state = 0;
 	if (conv->precision.state == 0)
 	{
 		conv->width.state = 1;
-		conv->width.content = va_arg(args, int);
+		conv->width.content = i;
 	}
 	else
 	{
-		conv->precision.content = va_arg(args, int);
+		conv->precision.content = i;
 	}
 }
 
@@ -90,9 +104,9 @@ int		ft_pf_atoi(t_conv *conv, char *str)
 
 void	ft_exec_flags(t_conv *conv)
 {
-	// change conv->sp_len inside this func)
+	special_cases(conv);
 	if (conv->minus.state == 1)
-		conv->zero.state == 0;
+		conv->zero.state = 0;
 	if (conv->precision.state == 1 && conv->precision.content != 0)
 		put_precision(conv); //Join string with zeros and sp_print, need negative treatment
 	if (conv->part_chr[0] != '\0' && conv->zero.state == 0)
@@ -112,14 +126,16 @@ void	put_precision(t_conv *conv)
 {
 	char	*temp;
 	int		size;
-
-	size = conv->precision.content - ft_strlen(conv->sp_print);
-	if (size > 0)
+	if (conv->precision.content > 0)
 	{
-	temp = strbuild(conv, '0', size);
-	conv->sp_print =  ft_strjoin(temp, conv->sp_print);
-	free(temp);
-	temp = NULL;
+		size = conv->precision.content - ft_strlen(conv->sp_print);
+		if (size > 0)
+		{
+		temp = strbuild('0', size);
+		conv->sp_print =  ft_strjoin(temp, conv->sp_print);
+		free(temp);
+		temp = NULL;
+		}
 	}
 }
 
@@ -139,7 +155,7 @@ void	put_width(t_conv *conv)
 		c = '0';
 	if (size > 0)
 	{
-	temp = strbuild(conv, c, size);
+	temp = strbuild(c, size);
 	if(conv->minus.state == 0)
 		conv->sp_print =  ft_strjoin(temp, conv->sp_print);
 	else	
@@ -149,7 +165,8 @@ void	put_width(t_conv *conv)
 	}
 }
 
-char	*strbuild(t_conv *conv, char c, int n)
+
+char	*strbuild(char c, int n)
 {
 	int		i;
 	char	*temp;
@@ -164,7 +181,18 @@ char	*strbuild(t_conv *conv, char c, int n)
 	temp[i] = '\0';
 	return (temp);
 }
-
+void	special_cases(t_conv *conv)
+{
+	if (conv->specifier == 'd' || conv->specifier == 'i' ||
+		conv->specifier == 'u' || conv->specifier == 'x' ||
+		conv->specifier == 'X')
+		{
+			if (conv->precision.state == 1 && conv->precision.content == 0 
+				&& conv->sp_print[0] == '0' && conv->sp_print[1] == '\0')
+				conv->sp_print[0] = '\0';
+		}
+}
+ 
 
 
 

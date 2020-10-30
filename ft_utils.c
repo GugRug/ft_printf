@@ -6,7 +6,7 @@
 /*   By: gumartin <gumartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/23 05:23:50 by gumartin          #+#    #+#             */
-/*   Updated: 2020/10/29 13:48:19 by gumartin         ###   ########.fr       */
+/*   Updated: 2020/10/30 00:18:47 by gumartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,28 @@ void	ft_putchar(t_conv *conv, char c)
 
 void	ft_putstr(t_conv *conv, char *s)
 {
-	if (s)
+	int	i;
+
+	i = 0;
+	if (conv->invalid == 1)
+	{
+		conv->sp_print = (char*)malloc(sizeof(char*) * (ft_strlen(s) + 1));
+		while (s[i])
+		{
+			conv->sp_print[i] = s[i];
+			i++;
+		}
+		conv->sp_print[i] = '\0';
+		conv->invalid = 0;
+	}
+	else if (s)
+	{
 		while (*s)
 		{
 		ft_putchar(conv, *s);
 		s++;
 		}
+	}
 }
 
 int		ft_isnum(char c)

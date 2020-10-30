@@ -6,7 +6,7 @@
 /*   By: gumartin <gumartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/22 13:39:47 by gumartin          #+#    #+#             */
-/*   Updated: 2020/10/29 18:23:40 by gumartin         ###   ########.fr       */
+/*   Updated: 2020/10/29 21:59:45 by gumartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,17 +76,13 @@ int		ft_valid_conv(t_conv *conv, const char *fmt, va_list args)
 
 void	ft_putflag(t_conv *conv, const char *fmt, va_list args)
 {
-	int	i;
-	
-	i = 0;
-
 	conv->flags = ft_substr(fmt, conv->counter, conv->len);
-	ft_convert(conv, fmt, args);
+	ft_convert(conv, args);
 	free(conv->flags);
 	conv->flags = NULL;
 }
 
-void	ft_convert(t_conv *conv, const char *fmt, va_list args)
+void	ft_convert(t_conv *conv, va_list args)
 {	
 	ft_read_flags(conv, args);
 	if (conv->specifier == 'c')

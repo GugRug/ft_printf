@@ -6,7 +6,7 @@
 /*   By: gumartin <gumartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/22 14:00:24 by gumartin          #+#    #+#             */
-/*   Updated: 2020/10/29 16:29:19 by gumartin         ###   ########.fr       */
+/*   Updated: 2020/10/29 23:51:17 by gumartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ typedef struct	s_conv
 	int			ret;
 	int			counter;
 	int			len_atoi;
+	int			invalid;
 	char*		sp_print;
 	char		part_chr[3];
 	char*		flags;
@@ -52,7 +53,7 @@ int		ft_printf(const char *fmt, ...);
 void	ft_flags(t_conv *conv, const char *fmt, va_list args);
 int		ft_valid_conv(t_conv *conv, const char *fmt, va_list args);
 void	ft_putflag(t_conv *conv, const char *fmt, va_list args);
-void	ft_convert(t_conv *conv, const char *fmt, va_list args);
+void	ft_convert(t_conv *conv, va_list args);
 /*
 **
 **		clean.c
@@ -91,12 +92,13 @@ void	ft_xX_print(t_conv *conv, va_list args);
 **		Flags
 */
 void	ft_read_flags(t_conv *conv, va_list args);
-void	ft_flag_num(t_conv *conv, va_list args, int *ref);
+void	ft_flag_num(t_conv *conv, int *ref);
 void	ft_flag_asterisk(t_conv *conv, va_list args);
 int		ft_pf_atoi(t_conv *conv, char *str);
 void	ft_exec_flags(t_conv *conv);
 void	put_precision(t_conv *conv);
 void	put_width(t_conv *conv);
-char	*strbuild(t_conv *conv, char c, int n);
+char	*strbuild(char c, int n);
+void	special_cases(t_conv *conv);
 
 #endif
