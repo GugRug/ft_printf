@@ -6,7 +6,7 @@
 /*   By: gumartin <gumartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 14:45:31 by gumartin          #+#    #+#             */
-/*   Updated: 2020/10/30 17:50:46 by gumartin         ###   ########.fr       */
+/*   Updated: 2020/10/30 18:29:07 by gumartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ int	main(void)
 	// ft_printf("Isso e um teste basico \n%d, %i, %u, %c, %s, %x, %X, %p\n", -234, 3834567899, 3834567899,'h', "abacate", 163, 32456, &a);
 	// ft_printf("Isso e um teste basico \n%c, %-c, %12c, %-3c, %-1c, %1c, %-2c, %-4c, %5c, %3c, %-*c, %-*c, %*c, %*c\n", c, c, c, c, c, c, c, c, c, c, 12, c, 12, c, 12, c, 12, c);
 	// printf("Isso e um teste basico \n%c, %-c, %12c, %-3c, %-1c, %1c, %-2c, %-4c, %5c, %3c, %-*c, %-*c, %*c, %*c\n", c, c, c, c, c, c, c, c, c, c, 12, c, 12, c, 12, c, 12, c);
-	ft2 = printf("printf_pf |%s|\n", str);
-	ft = ft_printf("ft_printf |%s|\n", str);
+	ft2 = printf("printf_pf |%10%|\n", a);
+	ft = ft_printf("ft_printf |%10%|\n", a);
 	printf("ft_printf: %d | printf: %d\n", ft, ft2);
 	// ft_printf("INTEGERS\n");
 	// ft_printf("ft_printf |%-*d|	-	", 3, a);printf("|%-*d| Correto\n", 3, a, b);
