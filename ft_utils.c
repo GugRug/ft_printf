@@ -6,7 +6,7 @@
 /*   By: gumartin <gumartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/23 05:23:50 by gumartin          #+#    #+#             */
-/*   Updated: 2020/10/30 17:07:36 by gumartin         ###   ########.fr       */
+/*   Updated: 2020/10/30 20:44:25 by gumartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +18,26 @@ void	ft_putchar(t_conv *conv, char c)
 	conv->ret++;
 }
 
-void	ft_putstr(t_conv *conv, char *s)
+void	ft_putstr_invalid(t_conv *conv, char *s)
 {
 	int	i;
 
 	i = 0;
+	conv->sp_print = (char*)malloc(sizeof(char*) * (ft_strlen(s) + 1));
+	while (s[i])
+	{
+		conv->sp_print[i] = s[i];
+		i++;
+	}
+	conv->sp_print[i] = '\0';
+	conv->invalid = 0;
+}
+
+void	ft_putstr(t_conv *conv, char *s)
+{
 	if (conv->invalid == 1)
 	{
-		conv->sp_print = (char*)malloc(sizeof(char*) * (ft_strlen(s) + 1));
-		while (s[i])
-		{
-			conv->sp_print[i] = s[i];
-			i++;
-		}
-		conv->sp_print[i] = '\0';
-		conv->invalid = 0;
+		ft_putstr_invalid(conv, s);
 	}
 	else if (s)
 	{
@@ -52,8 +57,8 @@ void	ft_putstr(t_conv *conv, char *s)
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char                    *sub;
-	unsigned int    i;
+	char			*sub;
+	unsigned int	i;
 
 	if (s != NULL)
 	{
@@ -90,4 +95,3 @@ char	*ft_strjoin(t_conv *conv, char *s1, char *s2)
 	conv->sp_print = NULL;
 	return (join);
 }
-

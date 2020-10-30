@@ -6,7 +6,7 @@
 /*   By: gumartin <gumartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/24 08:16:56 by gumartin          #+#    #+#             */
-/*   Updated: 2020/10/30 19:16:58 by gumartin         ###   ########.fr       */
+/*   Updated: 2020/10/30 20:43:35 by gumartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,14 @@ void	ft_putnbr_x(t_conv *conv, size_t nb)
 
 void	int_to_char(t_conv *conv, size_t n)
 {
-	static char	c[2];
+	char	c[2];
+
 	if (n < 10)
 		*c = n + '0';
 	else if (n < 16 && conv->specifier == 'p')
-		*c = n + (conv->specifier - ('p' - 'a' +10));
+		*c = n + (conv->specifier - ('p' - 'a' + 10));
 	else if (n < 16)
-		*c = n + (conv->specifier - ('x' - 'a' +10));
+		*c = n + (conv->specifier - ('x' - 'a' + 10));
 	c[1] = '\0';
 	if (conv->sp_print == NULL)
 	{

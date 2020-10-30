@@ -6,7 +6,7 @@
 /*   By: gumartin <gumartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/22 13:39:47 by gumartin          #+#    #+#             */
-/*   Updated: 2020/10/30 19:13:54 by gumartin         ###   ########.fr       */
+/*   Updated: 2020/10/30 20:51:37 by gumartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int		ft_printf(const char *fmt, ...)
 {
-	t_conv conv;
-	va_list args;
-	
+	t_conv	conv;
+	va_list	args;
+
 	init(&conv);
 	va_start(args, fmt);
 	while (fmt[conv.counter])
@@ -41,7 +41,7 @@ void	ft_flags(t_conv *conv, const char *fmt, va_list args)
 {
 	conv->counter++;
 	if (ft_valid_conv(conv, fmt, args))
-		return;
+		return ;
 	ft_putchar(conv, fmt[(conv->counter)]);
 }
 
@@ -49,24 +49,29 @@ int		ft_valid_conv(t_conv *conv, const char *fmt, va_list args)
 {
 	while (fmt[(conv->counter + conv->len)])
 	{
-		if (fmt[(conv->counter + conv->len)] == '-' || fmt[(conv->counter + conv->len)] == '0' ||
-			fmt[(conv->counter + conv->len)] == '.' || fmt[(conv->counter + conv->len)] == '*' ||
+		if (fmt[(conv->counter + conv->len)] == '-' ||
+			fmt[(conv->counter + conv->len)] == '0' ||
+			fmt[(conv->counter + conv->len)] == '.' ||
+			fmt[(conv->counter + conv->len)] == '*' ||
 			ft_isnum(fmt[(conv->counter + conv->len)]))
-		{	conv->len++;
-		}
-		else if (fmt[(conv->counter + conv->len)] == 'c' || fmt[(conv->counter + conv->len)] == 's' ||
-				fmt[(conv->counter + conv->len)] == 'p' || fmt[(conv->counter + conv->len)] == 'd' ||
-				fmt[(conv->counter + conv->len)] == 'i' || fmt[(conv->counter + conv->len)] == 'u' ||
-				fmt[(conv->counter + conv->len)] == 'x' || fmt[(conv->counter + conv->len)] == 'X' ||
+			conv->len++;
+		else if (fmt[(conv->counter + conv->len)] == 'c' ||
+				fmt[(conv->counter + conv->len)] == 's' ||
+				fmt[(conv->counter + conv->len)] == 'p' ||
+				fmt[(conv->counter + conv->len)] == 'd' ||
+				fmt[(conv->counter + conv->len)] == 'i' ||
+				fmt[(conv->counter + conv->len)] == 'u' ||
+				fmt[(conv->counter + conv->len)] == 'x' ||
+				fmt[(conv->counter + conv->len)] == 'X' ||
 				fmt[(conv->counter + conv->len)] == '%')
 		{
 			conv->specifier = fmt[(conv->counter + conv->len)];
 			ft_putflag(conv, fmt, args);
 			return (1);
 		}
-		else 
+		else
 			return (0);
-	}	
+	}
 	return (0);
 }
 
@@ -79,7 +84,7 @@ void	ft_putflag(t_conv *conv, const char *fmt, va_list args)
 }
 
 void	ft_convert(t_conv *conv, va_list args)
-{	
+{
 	ft_read_flags(conv, args);
 	if (conv->specifier == 'c')
 		ft_c_print(conv, args);
