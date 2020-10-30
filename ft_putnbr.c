@@ -6,7 +6,7 @@
 /*   By: gumartin <gumartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/24 08:16:56 by gumartin          #+#    #+#             */
-/*   Updated: 2020/10/30 12:57:18 by gumartin         ###   ########.fr       */
+/*   Updated: 2020/10/30 19:16:58 by gumartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,12 @@ void	ft_putnbr_u(t_conv *conv, unsigned int nb)
 		int_to_char(conv, nb);
 }
 
-void	ft_putnbr_xX(t_conv *conv, size_t nb)
+void	ft_putnbr_x(t_conv *conv, size_t nb)
 {
 	if (nb >= 16)
 	{
-		ft_putnbr_xX(conv, nb / 16);
-		ft_putnbr_xX(conv, nb % 16);
+		ft_putnbr_x(conv, nb / 16);
+		ft_putnbr_x(conv, nb % 16);
 	}
 	else
 		int_to_char(conv, nb);

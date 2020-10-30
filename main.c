@@ -6,7 +6,7 @@
 /*   By: gumartin <gumartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 14:45:31 by gumartin          #+#    #+#             */
-/*   Updated: 2020/10/30 18:29:07 by gumartin         ###   ########.fr       */
+/*   Updated: 2020/10/30 19:49:52 by gumartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,16 @@ int	main(void)
 	int ft = 0;
 	int ft2 = 0;
 	char *str = NULL;
-	int *addr = NULL;
+	size_t *addr = NULL;
 	// ft_printf("Isso e um teste basico:\n|%d|\n", 35);
 	// ft_printf("Isso e um teste basico:\n|%s|\n", "testa");
 	// printf("Isso e o pf %.5- real \n%d, %i, %u, %c, %s, %x, %X, %p\n", -234, 3834567899, 3834567899,'h', "abacate", 163, 32456, &a);
 	// ft_printf("Isso e um teste basico \n%d, %i, %u, %c, %s, %x, %X, %p\n", -234, 3834567899, 3834567899,'h', "abacate", 163, 32456, &a);
 	// ft_printf("Isso e um teste basico \n%c, %-c, %12c, %-3c, %-1c, %1c, %-2c, %-4c, %5c, %3c, %-*c, %-*c, %*c, %*c\n", c, c, c, c, c, c, c, c, c, c, 12, c, 12, c, 12, c, 12, c);
 	// printf("Isso e um teste basico \n%c, %-c, %12c, %-3c, %-1c, %1c, %-2c, %-4c, %5c, %3c, %-*c, %-*c, %*c, %*c\n", c, c, c, c, c, c, c, c, c, c, 12, c, 12, c, 12, c, 12, c);
-	ft2 = printf("printf_pf |%10%|\n", a);
-	ft = ft_printf("ft_printf |%10%|\n", a);
-	printf("ft_printf: %d | printf: %d\n", ft, ft2);
+	// ft2 = printf("printf_pf |%10%|\n", a);
+	// ft = ft_printf("ft_printf |%10%|\n", a);
+	// printf("ft_printf: %d | printf: %d\n", ft, ft2);
 	// ft_printf("INTEGERS\n");
 	// ft_printf("ft_printf |%-*d|	-	", 3, a);printf("|%-*d| Correto\n", 3, a, b);
 	// ft_printf("ft_printf |%-05d|	-	", a);printf("|%-05d| Correto\n", a);
@@ -74,13 +74,13 @@ int	main(void)
 	// ft_printf("ft_printf |%5.4s|	-	", str);printf("|%5.4s| Correto\n", str);
 	// ft_printf("ft_printf |%010.8s|	-	", str);printf("|%010.8s| Correto\n", str);
 
-	// ft_printf("Adress -> %p\n", addr);
-	// ft_printf("ft_printf |%-*p|	-	", 15, addr);printf("|%-*p| Correto\n", 15, addr);
-	// ft_printf("ft_printf |%020.10p|	-	", addr);printf("|%020.10p| Correto\n", addr);
-	// ft_printf("ft_printf |%-050p|	-	", addr);printf("|%-050p| Correto\n", addr);
-	// ft_printf("ft_printf |%.90p|	-	", addr);printf("|%.90p| Correto\n", addr);
-	// ft_printf("ft_printf |%-.9p|	-	", addr);printf("|%-.9p| Correto\n", addr);
-	// ft_printf("ft_printf |%5.4p|	-	", addr);printf("|%5.4p| Correto\n", addr);
-	// ft_printf("ft_printf |%15.30p|	-	", addr);printf("|%15.30p| Correto\n", addr);
+	ft_printf("Adress -> %p\n", addr);
+	ft_printf("ft_printf |%2p|	-	", addr);			printf("|%2p| Correto\n", addr);
+	ft_printf("ft_printf |%2.p|	-	", addr);		printf("|%2.p| Correto\n", addr);
+	ft_printf("ft_printf |%.5p|	-	", addr);		printf("|%.5p| Correto\n", addr);
+	// ft_printf("ft_printf |%.90p|	-	", addr);		printf("|%.90p| Correto\n", addr);
+	// ft_printf("ft_printf |%-.9p|	-	", addr);		printf("|%-.9p| Correto\n", addr);
+	// ft_printf("ft_printf |%5.4p|	-	", addr);		printf("|%5.4p| Correto\n", addr);
+	// ft_printf("ft_printf |%15.30p|	-	", addr);	printf("|%15.30p| Correto\n", addr);
 	return (0);
 }

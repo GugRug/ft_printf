@@ -6,7 +6,7 @@
 /*   By: gumartin <gumartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/22 13:39:47 by gumartin          #+#    #+#             */
-/*   Updated: 2020/10/30 16:32:36 by gumartin         ###   ########.fr       */
+/*   Updated: 2020/10/30 19:13:54 by gumartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ void	ft_convert(t_conv *conv, va_list args)
 	else if (conv->specifier == 'u')
 		ft_u_print(conv, args);
 	else if (conv->specifier == 'x' || (conv->specifier == 'X'))
-		ft_xX_print(conv, args);
+		ft_x_print(conv, args);
 	else if (conv->specifier == '%')
 		ft_pct_print(conv, args);
 }

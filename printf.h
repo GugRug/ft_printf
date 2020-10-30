@@ -6,7 +6,7 @@
 /*   By: gumartin <gumartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/22 14:00:24 by gumartin          #+#    #+#             */
-/*   Updated: 2020/10/30 17:33:07 by gumartin         ###   ########.fr       */
+/*   Updated: 2020/10/30 19:16:47 by gumartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	ft_c_print(t_conv *conv, va_list args);
 void	ft_p_print(t_conv *conv, va_list args);
 void	ft_di_print(t_conv *conv, va_list args);
 void	ft_u_print(t_conv *conv, va_list args);
-void	ft_xX_print(t_conv *conv, va_list args);
+void	ft_x_print(t_conv *conv, va_list args);
 void	ft_pct_print(t_conv *conv, va_list args);
 void	ft_s_print(t_conv *conv, va_list args);
 /*
@@ -72,7 +72,7 @@ void	ft_s_print(t_conv *conv, va_list args);
 **		putnbr.c
 */
 void	ft_putnbr_u(t_conv *conv, unsigned int nb);
-void	ft_putnbr_xX(t_conv *conv, size_t nb);
+void	ft_putnbr_x(t_conv *conv, size_t nb);
 void	int_to_char(t_conv *conv, size_t n);
 /*
 **

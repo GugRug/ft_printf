@@ -34,7 +34,7 @@ void	ft_s_print(t_conv *conv, va_list args)
 {
 	size_t	i;
 	char	*temp;
-	
+
 	conv->zero.state = 0;
 	i = 0;
 	temp = va_arg(args, char *);
@@ -47,7 +47,7 @@ void	ft_s_print(t_conv *conv, va_list args)
 		{
 			conv->sp_print[i] = temp[i];
 			i++;
-		}	
+		}
 	else
 		while (temp && temp[i] != '\0')
 		{
@@ -60,7 +60,7 @@ void	ft_s_print(t_conv *conv, va_list args)
 		temp = NULL;
 		conv->invalid = 0;
 	}
-	conv->sp_print[i] = '\0';	
+	conv->sp_print[i] = '\0';
 	conv->precision.state = 0;
 	conv->precision.content = 0;
 	ft_exec_flags(conv);
