@@ -14,10 +14,9 @@
 
 void	ft_c_print(t_conv *conv, va_list args)
 {
-	//see flags
 	conv->zero.state = 0;
 	conv->precision.state = 0;
-	
+
 	conv->sp_print = (char*)malloc(sizeof(char*) * 3);
 	conv->sp_print[0] = va_arg(args, int);
 	conv->sp_print[1] = '\0';

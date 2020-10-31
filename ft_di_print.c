@@ -11,10 +11,10 @@
 /* ************************************************************************** */
 
 #include "printf.h"
-	
+
 void	ft_di_print(t_conv *conv, va_list args)
 {
-	int		nb;
+	int	nb;
 
 	nb = va_arg(args, int);
 	if (nb < 0)

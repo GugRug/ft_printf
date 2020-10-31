@@ -17,8 +17,8 @@ void	ft_p_print(t_conv *conv, va_list args)
 	size_t	nb;
 
 	nb = (size_t)va_arg(args, void *);
-		conv->part_chr[0] = '0';
-		conv->part_chr[1] = 'x';
+	conv->part_chr[0] = '0';
+	conv->part_chr[1] = 'x';
 	if (nb)
 		ft_putnbr_x(conv, nb);
 	else
@@ -29,7 +29,7 @@ void	ft_p_print(t_conv *conv, va_list args)
 		conv->sp_print[1] = '\0';
 	}
 	if (conv->invalid == 1 && conv->precision.state == 0)
-	 	conv->sp_print[0] = '0';
+		conv->sp_print[0] = '0';
 	conv->invalid = 0;
 	ft_exec_flags(conv);
 }
