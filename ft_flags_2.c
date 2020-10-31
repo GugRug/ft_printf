@@ -6,7 +6,7 @@
 /*   By: gumartin <gumartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:26:06 by gumartin          #+#    #+#             */
-/*   Updated: 2020/10/30 16:29:14 by gumartin         ###   ########.fr       */
+/*   Updated: 2020/10/30 21:12:32 by gumartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	put_precision(t_conv *conv)
 {
 	char	*temp;
-	int	size;
+	int		size;
 
 	if (conv->precision.content > 0)
 	{
@@ -23,7 +23,7 @@ void	put_precision(t_conv *conv)
 		if (size > 0)
 		{
 			temp = strbuild('0', size);
-			conv->sp_print =  ft_strjoin(conv, temp, conv->sp_print);
+			conv->sp_print = ft_strjoin(conv, temp, conv->sp_print);
 			free(temp);
 			temp = NULL;
 		}
@@ -34,8 +34,8 @@ void	put_width(t_conv *conv)
 {
 	char	*temp;
 	char	c;
-	int	size;
-	int	len;
+	int		size;
+	int		len;
 
 	len = 0;
 	if (conv->zero.state == 1)
@@ -58,14 +58,14 @@ void	put_width(t_conv *conv)
 
 char	*strbuild(char c, int n)
 {
-	int	i;
+	int		i;
 	char	*temp;
 
 	i = 0;
-	temp = (char *)malloc(sizeof(char *) * (n + 1));
+	temp = (char*)malloc(sizeof(char*) * (n + 1));
 	while (i < n)
 	{
-		temp[i]	= c;
+		temp[i] = c;
 		i++;
 	}
 	temp[i] = '\0';
