@@ -6,11 +6,11 @@
 /*   By: gumartin <gumartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/23 19:18:01 by gumartin          #+#    #+#             */
-/*   Updated: 2020/10/30 16:54:10 by gumartin         ###   ########.fr       */
+/*   Updated: 2020/10/30 21:24:10 by gumartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 void	clean_flags(t_conv *conv)
 {

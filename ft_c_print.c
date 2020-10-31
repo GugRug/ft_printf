@@ -6,11 +6,11 @@
 /*   By: gumartin <gumartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/23 19:52:14 by gumartin          #+#    #+#             */
-/*   Updated: 2020/10/30 21:12:59 by gumartin         ###   ########.fr       */
+/*   Updated: 2020/10/30 21:22:44 by gumartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 void	ft_c_print(t_conv *conv, va_list args)
 {

@@ -6,17 +6,13 @@
 #    By: gumartin <gumartin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/03 18:56:21 by gumartin          #+#    #+#              #
-#    Updated: 2020/10/30 21:16:06 by gumartin         ###   ########.fr        #
+#    Updated: 2020/10/30 21:25:02 by gumartin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 CC = gcc
-FLAGS = -c #-Wall -Wextra -Werror
-#SRCS_DIR	=	./libft
-#SRCS		=	ft_printf.c				\
-				$(SRCS_DIR)/ft_putnbr.c	\
-				$(SRCS_DIR)/ft_strlen.c	\
+FLAGS = -c -Wall -Wextra -Werror
 
 SRCS		=	./ft_c_print.c\
 				./ft_u_print.c\
@@ -33,11 +29,10 @@ SRCS		=	./ft_c_print.c\
 				./ft_printf.c\
 				./ft_clean.c
 
-
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
-$(NAME): $(SRCS) printf.h
+$(NAME): $(SRCS) ft_printf.h
 	gcc $(FLAGS) $(SRCS)
 	ar rc $(NAME) $(OBJS)
 	ranlib $(NAME)
@@ -49,9 +44,6 @@ fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
-
-#tst: all
-#	$(CC) $(FLAGS) main.c $(SRCS)
 
 #batata:
 #	gcc -g *.c  printf.h

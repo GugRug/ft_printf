@@ -6,11 +6,11 @@
 /*   By: gumartin <gumartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:26:06 by gumartin          #+#    #+#             */
-/*   Updated: 2020/10/30 21:14:47 by gumartin         ###   ########.fr       */
+/*   Updated: 2020/10/30 21:24:10 by gumartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 void	put_precision(t_conv *conv)
 {

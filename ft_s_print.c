@@ -6,11 +6,11 @@
 /*   By: gumartin <gumartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/23 19:18:13 by gumartin          #+#    #+#             */
-/*   Updated: 2020/10/30 20:57:12 by gumartin         ###   ########.fr       */
+/*   Updated: 2020/10/30 21:25:58 by gumartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 char	*ft_string_null(t_conv *conv)
 {
@@ -31,7 +31,7 @@ char	*ft_string_null(t_conv *conv)
 
 void	ft_temp_cpy(t_conv *conv, char *temp)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
 	if (conv->precision.state == 1 && temp)

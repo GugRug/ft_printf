@@ -6,11 +6,11 @@
 /*   By: gumartin <gumartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/24 08:16:56 by gumartin          #+#    #+#             */
-/*   Updated: 2020/10/30 20:43:35 by gumartin         ###   ########.fr       */
+/*   Updated: 2020/10/30 21:24:10 by gumartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 void	ft_putnbr_u(t_conv *conv, unsigned int nb)
 {

@@ -6,11 +6,11 @@
 /*   By: gumartin <gumartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:21:43 by gumartin          #+#    #+#             */
-/*   Updated: 2020/10/30 20:41:38 by gumartin         ###   ########.fr       */
+/*   Updated: 2020/10/30 21:24:10 by gumartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 int		ft_pf_atoi(t_conv *conv, char *str)
 {

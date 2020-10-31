@@ -6,11 +6,11 @@
 /*   By: gumartin <gumartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/22 13:39:47 by gumartin          #+#    #+#             */
-/*   Updated: 2020/10/30 20:54:02 by gumartin         ###   ########.fr       */
+/*   Updated: 2020/10/30 21:27:33 by gumartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 int		ft_printf(const char *fmt, ...)
 {
@@ -97,5 +97,5 @@ void	ft_convert(t_conv *conv, va_list args)
 	else if (conv->specifier == 'x' || (conv->specifier == 'X'))
 		ft_x_print(conv, args);
 	else if (conv->specifier == '%')
-		ft_pct_print(conv, args);
+		ft_pct_print(conv);
 }
