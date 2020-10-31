@@ -6,7 +6,7 @@
 /*   By: gumartin <gumartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/22 13:39:47 by gumartin          #+#    #+#             */
-/*   Updated: 2020/10/30 20:51:37 by gumartin         ###   ########.fr       */
+/*   Updated: 2020/10/30 20:54:02 by gumartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,6 @@ int		ft_valid_conv(t_conv *conv, const char *fmt, va_list args)
 			ft_putflag(conv, fmt, args);
 			return (1);
 		}
-		else
-			return (0);
 	}
 	return (0);
 }

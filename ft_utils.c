@@ -6,7 +6,7 @@
 /*   By: gumartin <gumartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/23 05:23:50 by gumartin          #+#    #+#             */
-/*   Updated: 2020/10/30 20:44:25 by gumartin         ###   ########.fr       */
+/*   Updated: 2020/10/30 20:58:56 by gumartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,14 +43,14 @@ void	ft_putstr(t_conv *conv, char *s)
 	{
 		while (*s || conv->char_zero == 1)
 		{
-		if (conv->char_zero == 1 && *s == 'W')
-		{
-			ft_putchar(conv, 0);
-			conv->char_zero = 0;
-		}
-		else
-			ft_putchar(conv, *s);
-		s++;
+			if (conv->char_zero == 1 && *s == 'W')
+			{
+				ft_putchar(conv, 0);
+				conv->char_zero = 0;
+			}
+			else
+				ft_putchar(conv, *s);
+			s++;
 		}
 	}
 }

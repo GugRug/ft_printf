@@ -6,7 +6,7 @@
 /*   By: gumartin <gumartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/22 14:00:24 by gumartin          #+#    #+#             */
-/*   Updated: 2020/10/30 20:32:18 by gumartin         ###   ########.fr       */
+/*   Updated: 2020/10/30 21:01:22 by gumartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,27 +20,27 @@
 
 typedef struct	s_flags
 {
-	int			state;
-	int			content;
-}				t_flags;
+	int				state;
+	int				content;
+}						t_flags;
 
 typedef struct	s_conv
 {
-	t_flags		minus;
-	t_flags		zero;
-	t_flags		width;
-	t_flags		precision;
-	int			len;
-	int			ret;
-	int			counter;
-	int			len_atoi;
-	int			invalid;
-	int			char_zero;
-	char*		sp_print;
-	char		part_chr[3];
-	char*		flags;
-	char		specifier;
-}				t_conv;
+	t_flags			minus;
+	t_flags			zero;
+	t_flags			width;
+	t_flags			precision;
+	int				len;
+	int				ret;
+	int				counter;
+	int				len_atoi;
+	int				invalid;
+	int				char_zero;
+	char*			sp_print;
+	char			part_chr[3];
+	char*			flags;
+	char			specifier;
+}						t_conv;
 /*
 **		ft_printf.c
 */

@@ -1,4 +1,3 @@
-
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -7,7 +6,7 @@
 /*   By: gumartin <gumartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/23 19:18:13 by gumartin          #+#    #+#             */
-/*   Updated: 2020/10/30 00:38:06 by gumartin         ###   ########.fr       */
+/*   Updated: 2020/10/30 20:57:12 by gumartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +54,7 @@ void	ft_s_print(t_conv *conv, va_list args)
 	char	*temp;
 
 	temp = va_arg(args, char *);
-	if (!temp)	
+	if (!temp)
 		temp = ft_string_null(conv);
 	else
 		conv->sp_print = (char*)malloc(sizeof(char*) * ft_strlen(temp) + 2);
