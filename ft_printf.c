@@ -6,7 +6,7 @@
 /*   By: gumartin <gumartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/22 13:39:47 by gumartin          #+#    #+#             */
-/*   Updated: 2020/10/30 21:27:33 by gumartin         ###   ########.fr       */
+/*   Updated: 2020/10/30 22:13:50 by gumartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,16 +65,18 @@ int		ft_valid_conv(t_conv *conv, const char *fmt, va_list args)
 				fmt[(conv->counter + conv->len)] == 'X' ||
 				fmt[(conv->counter + conv->len)] == '%')
 		{
-			conv->specifier = fmt[(conv->counter + conv->len)];
 			ft_putflag(conv, fmt, args);
 			return (1);
 		}
+		else
+			return (0);
 	}
 	return (0);
 }
 
 void	ft_putflag(t_conv *conv, const char *fmt, va_list args)
 {
+	conv->specifier = fmt[(conv->counter + conv->len)];
 	conv->flags = ft_substr(fmt, conv->counter, conv->len);
 	ft_convert(conv, args);
 	free(conv->flags);
