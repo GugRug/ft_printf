@@ -6,7 +6,7 @@
 /*   By: gumartin <gumartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:26:06 by gumartin          #+#    #+#             */
-/*   Updated: 2020/10/30 21:12:32 by gumartin         ###   ########.fr       */
+/*   Updated: 2020/10/30 21:14:47 by gumartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	put_width(t_conv *conv)
 		temp = strbuild(c, size);
 		if (conv->minus.state == 0)
 			conv->sp_print = ft_strjoin(conv, temp, conv->sp_print);
-		else	
+		else
 			conv->sp_print = ft_strjoin(conv, conv->sp_print, temp);
 		free(temp);
 		temp = NULL;
