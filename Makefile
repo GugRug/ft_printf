@@ -6,7 +6,7 @@
 #    By: gumartin <gumartin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/03 18:56:21 by gumartin          #+#    #+#              #
-#    Updated: 2020/10/30 19:07:26 by gumartin         ###   ########.fr        #
+#    Updated: 2020/10/30 21:16:06 by gumartin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,10 +53,10 @@ re: fclean all
 #tst: all
 #	$(CC) $(FLAGS) main.c $(SRCS)
 
-batata:
-	gcc -g *.c  printf.h
+#batata:
+#	gcc -g *.c  printf.h
 
-valg: batata
-	valgrind --leak-check=full ./a.out
+#valg: batata
+#	valgrind --leak-check=full ./a.out
 
 .PHONY: all clean fclean re
