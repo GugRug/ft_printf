@@ -1,4 +1,7 @@
-## ft\_printf: this is a project from École 42
+# ft_printf
+
+#### Description:
+It's my own version of the famous C function 'printf'
 
 #### Function name:
 ft\_printf
@@ -7,8 +10,6 @@ ft\_printf
 ```c
 int ft_printf(const char *format, ...);
 ```
-#### Description:
-It's my own version of the famous C function 'printf'
 
 #### Parameters:
 ```
